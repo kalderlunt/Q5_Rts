@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "RtsProject",
+			"Path": "..\\Source\\RtsProject.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "RtsProjectEditor",
+			"Path": "..\\Source\\RtsProjectEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
