@@ -3,6 +3,7 @@
 
 #include "SPlayerPawn.h"
 
+#include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
@@ -20,7 +21,7 @@ ASPlayerPawn::ASPlayerPawn()
 	SpringArmComponent->TargetArmLength = 2000.f;
 	SpringArmComponent->bDoCollisionTest = false;
 
-	CameraComponent = CreateDefaultSubobject<USceneComponent>(TEXT("CameraComponent"));
+	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetupAttachment(SpringArmComponent);
 	
 }
@@ -46,6 +47,11 @@ void ASPlayerPawn::Forward(float AxisValue)
 		return;
 	}
 
+	if (AxisValue >= 0.f)
+		PrintMessage(TEXT("Forward Action"), 0.2f, FColor::Green);
+	else
+		PrintMessage(TEXT("Backward Action"), 0.2f, FColor::Green);
+		
 	TargetLocation = SpringArmComponent->GetForwardVector() * AxisValue * MoveSpeed + TargetLocation;
 }
 
@@ -56,6 +62,11 @@ void ASPlayerPawn::Right(float AxisValue)
 		return;
 	}
 	
+	if (AxisValue >= 0.f)
+		PrintMessage(TEXT("Right Action"), 0.2f, FColor::Red);
+	else
+		PrintMessage(TEXT("Left Action"), 0.2f, FColor::Red);
+
 	TargetLocation = SpringArmComponent->GetRightVector() * AxisValue * MoveSpeed + TargetLocation;
 }
 
@@ -66,27 +77,40 @@ void ASPlayerPawn::Zoom(float AxisValue)
 		return;
 	}
 
+	if (AxisValue >= 0.f)
+	{
+		FString DebugMessage = FString::Printf(TEXT("Zoom Out Action"));
+		PrintMessage(DebugMessage, 0.5f, FColor::Blue);
+	}
+	else
+		PrintMessage(TEXT("Zoom In Action"), 0.5f, FColor::Blue);
+
 	const float Zoom = AxisValue * 100.f;
 	TargetZoom = FMath::Clamp(Zoom + TargetZoom, MinZoom, MaxZoom);
 }
 
 void ASPlayerPawn::RotateRight()
 {
+	PrintMessage(TEXT("Rotate Right Action"), 0.5f, FColor::Yellow);
 	TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(0.f, -45, 0.f));
 }
 
 void ASPlayerPawn::RotateLeft()
 {
+	PrintMessage(TEXT("Rotate Left Action"), 0.5f, FColor::Yellow);
 	TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(0.f, 45, 0.f));
 }
 
 void ASPlayerPawn::EnableRotate()
 {
+	PrintMessage(TEXT("Enable Rotate Action"), 1.f, FColor::Orange);
 	CanRotate = true;
 }
 
+
 void ASPlayerPawn::DisableRotate()
 {
+	PrintMessage(TEXT("Disable Rotate Action"), 1.f, FColor::Orange);
 	CanRotate = false;
 }
 
@@ -112,7 +136,7 @@ void ASPlayerPawn::RotateVertical(float AxisValue)
 	
 	if (CanRotate)
 	{
-		TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(0.f, AxisValue, 0.f));
+		TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(AxisValue, 0.f, 0.f));
 	}
 }
 
@@ -128,12 +152,12 @@ void ASPlayerPawn::Tick(float DeltaTime)
 	SetActorLocation(InterpolatedLocation);
 
 	// Zoom the camera in the desired direction
-	const float InterpolatedZoom = FMath::FInterpTo(SpringArmComponent->TargetArmLength, TargetZoom, DeltaTime, ZoomSpeed);
+	const float InterpolatedZoom = UKismetMathLibrary::FInterpTo(SpringArmComponent->TargetArmLength, TargetZoom, DeltaTime, ZoomSpeed);
 	SpringArmComponent->TargetArmLength = InterpolatedZoom;
 
 	// Rotate the camera in the desired direction
 	const FRotator InterpolatedRotation = UKismetMathLibrary::RInterpTo(SpringArmComponent->GetRelativeRotation(), TargetRotation, DeltaTime, RotateSpeed);
-	SetActorRotation(InterpolatedRotation);
+	SpringArmComponent->SetRelativeRotation(InterpolatedRotation);
 }
 
 // Called to bind functionality to input
@@ -170,4 +194,11 @@ void ASPlayerPawn::CameraBounds()
 
 	// Clamp Desired location to within bounds
 	TargetLocation = FVector(TargetLocation.X, TargetLocation.Y, 0.f);
+}
+
+
+void ASPlayerPawn::PrintMessage(FString Message, float TimeToDisplay, FColor Color)
+{
+	if(GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, TimeToDisplay, Color, *Message);	
 }

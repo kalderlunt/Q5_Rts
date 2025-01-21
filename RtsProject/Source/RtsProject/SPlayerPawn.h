@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "SPlayerPawn.generated.h"
 
+class USpringArmComponent;
+
 UCLASS()
 class RTSPROJECT_API ASPlayerPawn : public APawn
 {
@@ -77,7 +79,8 @@ protected:
 private:
 	UFUNCTION()
 	void CameraBounds();
-	
+	void PrintMessage(FString Message, float TimeToDisplay, FColor Color);
+
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;
 	

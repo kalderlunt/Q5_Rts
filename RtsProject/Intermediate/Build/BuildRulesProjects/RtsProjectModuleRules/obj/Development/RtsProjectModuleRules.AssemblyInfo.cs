@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RtsProjectModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54719ff474d319dd94999da4d762d6a63aeaadc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0912c08a41658d07e0658a6b7a6b486285835bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("RtsProjectModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RtsProjectModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
