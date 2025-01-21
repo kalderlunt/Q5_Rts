@@ -3,6 +3,7 @@
 
 #include "SPlayerPawn.h"
 
+#include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -140,12 +141,42 @@ void ASPlayerPawn::RotateVertical(float AxisValue)
 	}
 }
 
+void ASPlayerPawn::EdgeScroll()
+{
+	FVector2D MousePosition = UWidgetLayoutLibrary::GetMousePositionOnViewport(GetWorld());
+	const FVector2D ViewportSize = UWidgetLayoutLibrary::GetViewportSize(GetWorld());
+	MousePosition = MousePosition * UWidgetLayoutLibrary::GetViewportScale(GetWorld());
+	MousePosition.X = MousePosition.X / ViewportSize.X;
+	MousePosition.Y = MousePosition.Y / ViewportSize.Y;
+
+	// Right/Left
+	if (MousePosition.X > 0.98f && MousePosition.X < 1.f)
+	{
+		Right(1.f); // Right
+	}
+	else if (MousePosition.X < 0.02f && MousePosition.X > 0.f)
+	{
+		Right(-1.f); // Left
+	}
+
+	// Forward/Backward
+	if (MousePosition.Y > 0.98f && MousePosition.Y < 1.f)
+	{
+		Forward(-1.f); // Backward
+	}
+	else if (MousePosition.Y < 0.02f && MousePosition.Y > 0.f)
+	{
+		Forward(1.f); // Forward
+	}
+}
+
 // Called every frame
 void ASPlayerPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	CameraBounds();
+	EdgeScroll();
 	
 	// Move the pawn in the desired direction
 	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, MoveSpeed);

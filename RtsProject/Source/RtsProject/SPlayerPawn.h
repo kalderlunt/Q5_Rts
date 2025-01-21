@@ -53,6 +53,9 @@ protected:
 	
 	UFUNCTION()
 	void RotateVertical(float AxisValue);
+
+	UFUNCTION()
+	void EdgeScroll();
 	
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")

@@ -78,6 +78,35 @@ DEFINE_FUNCTION(ASPlayerPawn::execDisableRotate)
 }
 // End Class ASPlayerPawn Function DisableRotate
 
+// Begin Class ASPlayerPawn Function EdgeScroll
+struct Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "EdgeScroll", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_EdgeScroll()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execEdgeScroll)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->EdgeScroll();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function EdgeScroll
+
 // Begin Class ASPlayerPawn Function EnableRotate
 struct Z_Construct_UFunction_ASPlayerPawn_EnableRotate_Statics
 {
@@ -382,6 +411,7 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CameraBounds", &ASPlayerPawn::execCameraBounds },
 		{ "DisableRotate", &ASPlayerPawn::execDisableRotate },
+		{ "EdgeScroll", &ASPlayerPawn::execEdgeScroll },
 		{ "EnableRotate", &ASPlayerPawn::execEnableRotate },
 		{ "Forward", &ASPlayerPawn::execForward },
 		{ "Right", &ASPlayerPawn::execRight },
@@ -485,6 +515,7 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 66206963
 		{ &Z_Construct_UFunction_ASPlayerPawn_DisableRotate, "DisableRotate" }, // 1360418224
+		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 3071334244
 		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 3457198172
 		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 2179694479
 		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 2834279437
@@ -575,10 +606,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3301828257U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3919827171U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_1787794083(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_2892644204(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
