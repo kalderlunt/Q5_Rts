@@ -28,6 +28,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
+	void GetTerrainPosition(FVector& TerrainPosition) const;
+	
+	UFUNCTION()
 	void Forward(float AxisValue);
 
 	UFUNCTION()
@@ -60,6 +63,9 @@ protected:
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
 	float MoveSpeed = 20.f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
+	float EdgeScrollSpeed = 3.f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
 	float RotateSpeed = 2.f;
