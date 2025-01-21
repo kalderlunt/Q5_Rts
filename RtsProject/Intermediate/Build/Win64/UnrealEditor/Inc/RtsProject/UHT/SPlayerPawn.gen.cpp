@@ -78,6 +78,35 @@ DEFINE_FUNCTION(ASPlayerPawn::execDisableRotate)
 }
 // End Class ASPlayerPawn Function DisableRotate
 
+// Begin Class ASPlayerPawn Function EdgeScroll
+struct Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "EdgeScroll", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_EdgeScroll()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execEdgeScroll)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->EdgeScroll();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function EdgeScroll
+
 // Begin Class ASPlayerPawn Function EnableRotate
 struct Z_Construct_UFunction_ASPlayerPawn_EnableRotate_Statics
 {
@@ -148,6 +177,48 @@ DEFINE_FUNCTION(ASPlayerPawn::execForward)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function Forward
+
+// Begin Class ASPlayerPawn Function GetTerrainPosition
+struct Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics
+{
+	struct SPlayerPawn_eventGetTerrainPosition_Parms
+	{
+		FVector TerrainPosition;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_TerrainPosition;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::NewProp_TerrainPosition = { "TerrainPosition", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventGetTerrainPosition_Parms, TerrainPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::NewProp_TerrainPosition,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "GetTerrainPosition", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::SPlayerPawn_eventGetTerrainPosition_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40C80401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::SPlayerPawn_eventGetTerrainPosition_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execGetTerrainPosition)
+{
+	P_GET_STRUCT_REF(FVector,Z_Param_Out_TerrainPosition);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GetTerrainPosition(Z_Param_Out_TerrainPosition);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function GetTerrainPosition
 
 // Begin Class ASPlayerPawn Function Right
 struct Z_Construct_UFunction_ASPlayerPawn_Right_Statics
@@ -382,8 +453,10 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CameraBounds", &ASPlayerPawn::execCameraBounds },
 		{ "DisableRotate", &ASPlayerPawn::execDisableRotate },
+		{ "EdgeScroll", &ASPlayerPawn::execEdgeScroll },
 		{ "EnableRotate", &ASPlayerPawn::execEnableRotate },
 		{ "Forward", &ASPlayerPawn::execForward },
+		{ "GetTerrainPosition", &ASPlayerPawn::execGetTerrainPosition },
 		{ "Right", &ASPlayerPawn::execRight },
 		{ "RotateHorizontal", &ASPlayerPawn::execRotateHorizontal },
 		{ "RotateLeft", &ASPlayerPawn::execRotateLeft },
@@ -407,6 +480,10 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 		{ "ModuleRelativePath", "SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveSpeed_MetaData[] = {
+		{ "Category", "Settings|Camera" },
+		{ "ModuleRelativePath", "SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EdgeScrollSpeed_MetaData[] = {
 		{ "Category", "Settings|Camera" },
 		{ "ModuleRelativePath", "SPlayerPawn.h" },
 	};
@@ -466,6 +543,7 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_EdgeScrollSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RotateSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RotatePitchMin;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RotatePitchMax;
@@ -485,8 +563,10 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 66206963
 		{ &Z_Construct_UFunction_ASPlayerPawn_DisableRotate, "DisableRotate" }, // 1360418224
+		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 3071334244
 		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 3457198172
 		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 2179694479
+		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 1284685556
 		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 2834279437
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal, "RotateHorizontal" }, // 1444947453
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateLeft, "RotateLeft" }, // 306765408
@@ -501,6 +581,7 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_MoveSpeed = { "MoveSpeed", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, MoveSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveSpeed_MetaData), NewProp_MoveSpeed_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_EdgeScrollSpeed = { "EdgeScrollSpeed", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, EdgeScrollSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EdgeScrollSpeed_MetaData), NewProp_EdgeScrollSpeed_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotateSpeed = { "RotateSpeed", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, RotateSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RotateSpeed_MetaData), NewProp_RotateSpeed_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotatePitchMin = { "RotatePitchMin", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, RotatePitchMin), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RotatePitchMin_MetaData), NewProp_RotatePitchMin_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotatePitchMax = { "RotatePitchMax", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, RotatePitchMax), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RotatePitchMax_MetaData), NewProp_RotatePitchMax_MetaData) };
@@ -520,6 +601,7 @@ void Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit(void* Obj
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate = { "CanRotate", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASPlayerPawn), &Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CanRotate_MetaData), NewProp_CanRotate_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerPawn_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_MoveSpeed,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_EdgeScrollSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotateSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotatePitchMin,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_RotatePitchMax,
@@ -575,10 +657,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3301828257U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 1368522437U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_1787794083(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_1723788296(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

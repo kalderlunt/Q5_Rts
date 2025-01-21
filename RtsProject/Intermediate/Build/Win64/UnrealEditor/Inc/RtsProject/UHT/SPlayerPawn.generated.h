@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execCameraBounds); \
+	DECLARE_FUNCTION(execEdgeScroll); \
 	DECLARE_FUNCTION(execRotateVertical); \
 	DECLARE_FUNCTION(execRotateHorizontal); \
 	DECLARE_FUNCTION(execDisableRotate); \
@@ -24,7 +25,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execRotateRight); \
 	DECLARE_FUNCTION(execZoom); \
 	DECLARE_FUNCTION(execRight); \
-	DECLARE_FUNCTION(execForward);
+	DECLARE_FUNCTION(execForward); \
+	DECLARE_FUNCTION(execGetTerrainPosition);
 
 
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_14_INCLASS_NO_PURE_DECLS \

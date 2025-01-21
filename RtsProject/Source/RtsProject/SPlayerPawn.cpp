@@ -3,6 +3,7 @@
 
 #include "SPlayerPawn.h"
 
+#include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -40,6 +41,24 @@ void ASPlayerPawn::BeginPlay()
 	TargetRotation = FRotator(Rotation.Pitch + -50, Rotation.Yaw, 0.f);
 }
 
+void ASPlayerPawn::GetTerrainPosition(FVector& TerrainPosition) const
+{
+	FHitResult Hit;
+	FCollisionQueryParams CollisionParams;
+	FVector TraceOrigin = TerrainPosition;
+	TraceOrigin.Z += 10000.f;
+	FVector TraceEnd = TerrainPosition;
+	TraceEnd.Z -= 10000.f;
+
+	if (UWorld* WorldContext = GetWorld())
+	{
+		if (WorldContext->LineTraceSingleByChannel(Hit, TraceOrigin, TraceEnd, ECC_Visibility, CollisionParams))
+		{
+			TerrainPosition = Hit.ImpactPoint;
+		}
+	}
+}
+
 void ASPlayerPawn::Forward(float AxisValue)
 {
 	if (AxisValue == 0.f)
@@ -53,6 +72,7 @@ void ASPlayerPawn::Forward(float AxisValue)
 		PrintMessage(TEXT("Backward Action"), 0.2f, FColor::Green);
 		
 	TargetLocation = SpringArmComponent->GetForwardVector() * AxisValue * MoveSpeed + TargetLocation;
+	GetTerrainPosition(TargetLocation);
 }
 
 void ASPlayerPawn::Right(float AxisValue)
@@ -68,6 +88,7 @@ void ASPlayerPawn::Right(float AxisValue)
 		PrintMessage(TEXT("Left Action"), 0.2f, FColor::Red);
 
 	TargetLocation = SpringArmComponent->GetRightVector() * AxisValue * MoveSpeed + TargetLocation;
+	GetTerrainPosition(TargetLocation);
 }
 
 void ASPlayerPawn::Zoom(float AxisValue)
@@ -140,12 +161,45 @@ void ASPlayerPawn::RotateVertical(float AxisValue)
 	}
 }
 
+void ASPlayerPawn::EdgeScroll()
+{
+	if (UWorld* WorldContext = GetWorld())
+	{
+		FVector2D MousePosition = UWidgetLayoutLibrary::GetMousePositionOnViewport(WorldContext);
+		const FVector2D ViewportSize = UWidgetLayoutLibrary::GetViewportSize(WorldContext);
+		MousePosition = MousePosition * UWidgetLayoutLibrary::GetViewportScale(WorldContext);
+		MousePosition.X = MousePosition.X / ViewportSize.X;
+		MousePosition.Y = MousePosition.Y / ViewportSize.Y;
+
+		// Right/Left
+		if (MousePosition.X > 0.98f && MousePosition.X < 1.f)
+		{
+			Right(EdgeScrollSpeed); // Right
+		}
+		else if (MousePosition.X < 0.02f && MousePosition.X > 0.f)
+		{
+			Right(-EdgeScrollSpeed); // Left
+		}
+
+		// Forward/Backward
+		if (MousePosition.Y > 0.98f && MousePosition.Y < 1.f)
+		{
+			Forward(-EdgeScrollSpeed); // Backward
+		}
+		else if (MousePosition.Y < 0.02f && MousePosition.Y > 0.f)
+		{
+			Forward(EdgeScrollSpeed); // Forward
+		}
+	}
+}
+
 // Called every frame
 void ASPlayerPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	CameraBounds();
+	EdgeScroll();
 	
 	// Move the pawn in the desired direction
 	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, MoveSpeed);
@@ -191,9 +245,9 @@ void ASPlayerPawn::CameraBounds()
 
 	// Set the new pitch and clamp any roll
 	TargetRotation = FRotator(NewPitch, TargetRotation.Yaw, 0.f);
-
+	/*
 	// Clamp Desired location to within bounds
-	TargetLocation = FVector(TargetLocation.X, TargetLocation.Y, 0.f);
+	TargetLocation = FVector(TargetLocation.X, TargetLocation.Y, 0.f);*/
 }
 
 

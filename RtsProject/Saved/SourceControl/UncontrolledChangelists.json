@@ -5,10 +5,11 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/GM_GameMode.uasset",
 				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/B_GameMode.uasset",
 				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/TopDown/Maps/TopDownMap.umap",
-				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/B_Player.uasset"
+				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/B_Player.uasset",
+				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/__ExternalActors__/TopDown/Maps/TopDownMap/E/IC/9DRGXFWA4318X1T9R4J3PJ.uasset",
+				"D:/OneDrive - La Horde/B2/Quetes/Q5_Rts/Q5_Rts/RtsProject/Content/GM_GameMode.uasset"
 			]
 		}
 	]
