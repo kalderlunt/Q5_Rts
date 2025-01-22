@@ -299,6 +299,8 @@ void ASPlayerPawn::MouseLeftReleased()
 {
 	if (SPlayer)
 	{
+		if(GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::White, TEXT("Handle_Selection"));	
 		SPlayer->Handle_Selection(GetSelectedObject());
 	}
 }
