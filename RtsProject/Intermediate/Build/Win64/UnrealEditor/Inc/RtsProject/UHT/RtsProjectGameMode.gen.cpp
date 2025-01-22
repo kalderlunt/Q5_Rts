@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "RtsProject/RtsProjectGameMode.h"
+#include "RtsProject/Public/RtsProjectGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeRtsProjectGameMode() {}
 
@@ -31,7 +31,7 @@ struct Z_Construct_UClass_ARtsProjectGameMode_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "RtsProjectGameMode.h" },
-		{ "ModuleRelativePath", "RtsProjectGameMode.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif // WITH_METADATA
@@ -78,14 +78,14 @@ ARtsProjectGameMode::~ARtsProjectGameMode() {}
 // End Class ARtsProjectGameMode
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectGameMode_h_Statics
+struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARtsProjectGameMode, ARtsProjectGameMode::StaticClass, TEXT("ARtsProjectGameMode"), &Z_Registration_Info_UClass_ARtsProjectGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectGameMode), 90807099U) },
+		{ Z_Construct_UClass_ARtsProjectGameMode, ARtsProjectGameMode::StaticClass, TEXT("ARtsProjectGameMode"), &Z_Registration_Info_UClass_ARtsProjectGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectGameMode), 2169284024U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectGameMode_h_2787227573(TEXT("/Script/RtsProject"),
-	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectGameMode_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectGameMode_h_1187642941(TEXT("/Script/RtsProject"),
+	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

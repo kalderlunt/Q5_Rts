@@ -1,4 +1,5 @@
 /I "."
+/I "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Source\RtsProject\Private"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\UHT"
 /I "Runtime\Engine\Classes"
 /I "Runtime\Engine\Public"
@@ -287,6 +288,7 @@
 /I "Editor\AnimationEditMode\Public"
 /I "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\UnrealEditor\Inc\RtsProject\UHT"
 /I "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Source"
+/I "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Source\RtsProject\Public"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\AIModule\UHT"
 /I "Runtime\AIModule\Classes"
 /I "Runtime\AIModule\Public"

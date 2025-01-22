@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "RtsProject/RtsProjectCharacter.h"
+#include "RtsProject/Public/RtsProjectCharacter.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeRtsProjectCharacter() {}
 
@@ -15,6 +15,7 @@ ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ARtsProjectCharacter();
 RTSPROJECT_API UClass* Z_Construct_UClass_ARtsProjectCharacter_NoRegister();
+RTSPROJECT_API UClass* Z_Construct_UClass_USelectable_NoRegister();
 UPackage* Z_Construct_UPackage__Script_RtsProject();
 // End Cross Module References
 
@@ -35,7 +36,7 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "RtsProjectCharacter.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TopDownCameraComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -44,7 +45,7 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "Comment", "/** Top down camera */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Top down camera" },
 #endif
@@ -56,16 +57,28 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "Comment", "/** Camera boom positioning the camera above the character */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Camera boom positioning the camera above the character" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Selected_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** End ISelectable Interdace **/" },
+#endif
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "End ISelectable Interdace *" },
 #endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_TopDownCameraComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
+	static void NewProp_Selected_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_Selected;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARtsProjectCharacter>::IsAbstract,
 	};
@@ -73,9 +86,15 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_TopDownCameraComponent = { "TopDownCameraComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARtsProjectCharacter, TopDownCameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TopDownCameraComponent_MetaData), NewProp_TopDownCameraComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ARtsProjectCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraBoom_MetaData), NewProp_CameraBoom_MetaData) };
+void Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_Selected_SetBit(void* Obj)
+{
+	((ARtsProjectCharacter*)Obj)->Selected = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_Selected = { "Selected", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ARtsProjectCharacter), &Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_Selected_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Selected_MetaData), NewProp_Selected_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARtsProjectCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_TopDownCameraComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_CameraBoom,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARtsProjectCharacter_Statics::NewProp_Selected,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ARtsProjectCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ARtsProjectCharacter_Statics::DependentSingletons[])() = {
@@ -83,6 +102,9 @@ UObject* (*const Z_Construct_UClass_ARtsProjectCharacter_Statics::DependentSingl
 	(UObject* (*)())Z_Construct_UPackage__Script_RtsProject,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ARtsProjectCharacter_Statics::DependentSingletons) < 16);
+const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ARtsProjectCharacter_Statics::InterfaceParams[] = {
+	{ Z_Construct_UClass_USelectable_NoRegister, (int32)VTABLE_OFFSET(ARtsProjectCharacter, ISelectable), false },  // 1221920277
+};
 const UECodeGen_Private::FClassParams Z_Construct_UClass_ARtsProjectCharacter_Statics::ClassParams = {
 	&ARtsProjectCharacter::StaticClass,
 	"Game",
@@ -90,11 +112,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ARtsProjectCharacter_St
 	DependentSingletons,
 	nullptr,
 	Z_Construct_UClass_ARtsProjectCharacter_Statics::PropPointers,
-	nullptr,
+	InterfaceParams,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
 	UE_ARRAY_COUNT(Z_Construct_UClass_ARtsProjectCharacter_Statics::PropPointers),
-	0,
+	UE_ARRAY_COUNT(InterfaceParams),
 	0x008000A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ARtsProjectCharacter_Statics::Class_MetaDataParams), Z_Construct_UClass_ARtsProjectCharacter_Statics::Class_MetaDataParams)
 };
@@ -115,14 +137,14 @@ ARtsProjectCharacter::~ARtsProjectCharacter() {}
 // End Class ARtsProjectCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARtsProjectCharacter, ARtsProjectCharacter::StaticClass, TEXT("ARtsProjectCharacter"), &Z_Registration_Info_UClass_ARtsProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectCharacter), 3385062865U) },
+		{ Z_Construct_UClass_ARtsProjectCharacter, ARtsProjectCharacter::StaticClass, TEXT("ARtsProjectCharacter"), &Z_Registration_Info_UClass_ARtsProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectCharacter), 1655487715U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_3696643240(TEXT("/Script/RtsProject"),
-	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_3099063850(TEXT("/Script/RtsProject"),
+	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
