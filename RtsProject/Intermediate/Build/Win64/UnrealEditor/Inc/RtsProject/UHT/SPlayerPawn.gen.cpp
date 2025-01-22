@@ -12,9 +12,11 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 // Begin Cross Module References
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APawn();
 ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerController_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn_NoRegister();
 UPackage* Z_Construct_UPackage__Script_RtsProject();
@@ -178,6 +180,47 @@ DEFINE_FUNCTION(ASPlayerPawn::execForward)
 }
 // End Class ASPlayerPawn Function Forward
 
+// Begin Class ASPlayerPawn Function GetSelectedObject
+struct Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics
+{
+	struct SPlayerPawn_eventGetSelectedObject_Parms
+	{
+		AActor* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventGetSelectedObject_Parms, ReturnValue), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "GetSelectedObject", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::SPlayerPawn_eventGetSelectedObject_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::SPlayerPawn_eventGetSelectedObject_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execGetSelectedObject)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(AActor**)Z_Param__Result=P_THIS->GetSelectedObject();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function GetSelectedObject
+
 // Begin Class ASPlayerPawn Function GetTerrainPosition
 struct Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics
 {
@@ -219,6 +262,122 @@ DEFINE_FUNCTION(ASPlayerPawn::execGetTerrainPosition)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function GetTerrainPosition
+
+// Begin Class ASPlayerPawn Function MouseLeftPressed
+struct Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "MouseLeftPressed", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execMouseLeftPressed)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MouseLeftPressed();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function MouseLeftPressed
+
+// Begin Class ASPlayerPawn Function MouseLeftReleased
+struct Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "MouseLeftReleased", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execMouseLeftReleased)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MouseLeftReleased();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function MouseLeftReleased
+
+// Begin Class ASPlayerPawn Function MouseRightPressed
+struct Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "MouseRightPressed", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execMouseRightPressed)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MouseRightPressed();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function MouseRightPressed
+
+// Begin Class ASPlayerPawn Function MouseRightReleased
+struct Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "MouseRightReleased", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execMouseRightReleased)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MouseRightReleased();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function MouseRightReleased
 
 // Begin Class ASPlayerPawn Function Right
 struct Z_Construct_UFunction_ASPlayerPawn_Right_Statics
@@ -456,7 +615,12 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 		{ "EdgeScroll", &ASPlayerPawn::execEdgeScroll },
 		{ "EnableRotate", &ASPlayerPawn::execEnableRotate },
 		{ "Forward", &ASPlayerPawn::execForward },
+		{ "GetSelectedObject", &ASPlayerPawn::execGetSelectedObject },
 		{ "GetTerrainPosition", &ASPlayerPawn::execGetTerrainPosition },
+		{ "MouseLeftPressed", &ASPlayerPawn::execMouseLeftPressed },
+		{ "MouseLeftReleased", &ASPlayerPawn::execMouseLeftReleased },
+		{ "MouseRightPressed", &ASPlayerPawn::execMouseRightPressed },
+		{ "MouseRightReleased", &ASPlayerPawn::execMouseRightReleased },
 		{ "Right", &ASPlayerPawn::execRight },
 		{ "RotateHorizontal", &ASPlayerPawn::execRotateHorizontal },
 		{ "RotateLeft", &ASPlayerPawn::execRotateLeft },
@@ -541,6 +705,9 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanRotate_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SPlayer_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_EdgeScrollSpeed;
@@ -558,6 +725,7 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TargetZoom;
 	static void NewProp_CanRotate_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_CanRotate;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SPlayer;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -566,7 +734,12 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 313748433
 		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 1686387382
 		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 1316584614
+		{ &Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject, "GetSelectedObject" }, // 584511560
 		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 3567289929
+		{ &Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed, "MouseLeftPressed" }, // 2311930029
+		{ &Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased, "MouseLeftReleased" }, // 2182905322
+		{ &Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed, "MouseRightPressed" }, // 4031188593
+		{ &Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased, "MouseRightReleased" }, // 2372769435
 		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 3313539582
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal, "RotateHorizontal" }, // 2132091151
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateLeft, "RotateLeft" }, // 1400879224
@@ -599,6 +772,7 @@ void Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit(void* Obj
 	((ASPlayerPawn*)Obj)->CanRotate = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate = { "CanRotate", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASPlayerPawn), &Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CanRotate_MetaData), NewProp_CanRotate_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SPlayer = { "SPlayer", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, SPlayer), Z_Construct_UClass_ASPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SPlayer_MetaData), NewProp_SPlayer_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerPawn_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_MoveSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_EdgeScrollSpeed,
@@ -615,6 +789,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerP
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_TargetRotation,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_TargetZoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SPlayer,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASPlayerPawn_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ASPlayerPawn_Statics::DependentSingletons[])() = {
@@ -657,10 +832,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2268602884U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3154590297U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_3934142209(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_4121567753(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
