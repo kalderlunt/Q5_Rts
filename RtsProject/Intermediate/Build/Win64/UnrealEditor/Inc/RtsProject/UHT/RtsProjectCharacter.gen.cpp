@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "RtsProject/RtsProjectCharacter.h"
+#include "RtsProject/Public/RtsProjectCharacter.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeRtsProjectCharacter() {}
 
@@ -35,7 +35,7 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "RtsProjectCharacter.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TopDownCameraComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -44,7 +44,7 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "Comment", "/** Top down camera */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Top down camera" },
 #endif
@@ -56,7 +56,7 @@ struct Z_Construct_UClass_ARtsProjectCharacter_Statics
 		{ "Comment", "/** Camera boom positioning the camera above the character */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "RtsProjectCharacter.h" },
+		{ "ModuleRelativePath", "Public/RtsProjectCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Camera boom positioning the camera above the character" },
 #endif
@@ -115,14 +115,14 @@ ARtsProjectCharacter::~ARtsProjectCharacter() {}
 // End Class ARtsProjectCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ARtsProjectCharacter, ARtsProjectCharacter::StaticClass, TEXT("ARtsProjectCharacter"), &Z_Registration_Info_UClass_ARtsProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectCharacter), 3385062865U) },
+		{ Z_Construct_UClass_ARtsProjectCharacter, ARtsProjectCharacter::StaticClass, TEXT("ARtsProjectCharacter"), &Z_Registration_Info_UClass_ARtsProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ARtsProjectCharacter), 435631018U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_3696643240(TEXT("/Script/RtsProject"),
-	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_RtsProjectCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_1319709478(TEXT("/Script/RtsProject"),
+	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_RtsProjectCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

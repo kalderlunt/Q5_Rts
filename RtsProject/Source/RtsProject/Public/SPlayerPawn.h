@@ -3,9 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
 #include "SPlayerPawn.generated.h"
 
+class ASPlayerController;
+class UCameraComponent;
 class USpringArmComponent;
 
 UCLASS()
@@ -110,4 +111,25 @@ private:
 
 	UPROPERTY()
 	bool CanRotate;
+
+	/** Mouse Input **/
+protected:
+
+	UFUNCTION()
+	AActor* GetSelectedObject();
+
+	UFUNCTION()
+	void MouseLeftPressed();
+
+	UFUNCTION()
+	void MouseLeftReleased();
+
+	UFUNCTION()
+	void MouseRightPressed();
+
+	UFUNCTION()
+	void MouseRightReleased();
+
+	UPROPERTY()
+	ASPlayerController* SPlayer;
 };

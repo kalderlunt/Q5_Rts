@@ -3,9 +3,11 @@
 
 #include "SPlayerPawn.h"
 
+#include "SPlayerController.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
@@ -39,6 +41,9 @@ void ASPlayerPawn::BeginPlay()
 	// Set an initial rotation for the camera
 	const FRotator Rotation = SpringArmComponent->GetRelativeRotation();
 	TargetRotation = FRotator(Rotation.Pitch + -50, Rotation.Yaw, 0.f);
+
+	// Assign player controller reference
+	SPlayer = Cast<ASPlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
 }
 
 void ASPlayerPawn::GetTerrainPosition(FVector& TerrainPosition) const
@@ -229,6 +234,9 @@ void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("RotateLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateLeft);
 	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::EnableRotate);
 	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Released, this, &ASPlayerPawn::DisableRotate);
+	
+	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::MouseLeftPressed);
+	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Released, this, &ASPlayerPawn::MouseLeftReleased);
 }
 
 void ASPlayerPawn::CameraBounds()
@@ -255,4 +263,52 @@ void ASPlayerPawn::PrintMessage(FString Message, float TimeToDisplay, FColor Col
 {
 	if(GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, TimeToDisplay, Color, *Message);	
+}
+
+AActor* ASPlayerPawn::GetSelectedObject()
+{
+	// Check if we hit a actor we could potentially select
+	if (UWorld* World = GetWorld())
+	{
+		FVector WorldLocation;
+		FVector WorldDirection;
+		SPlayer->DeprojectMousePositionToWorld(WorldLocation, WorldDirection);
+ 		FVector End = WorldLocation * 1000000.f + WorldDirection;
+		FCollisionQueryParams Params;
+		Params.AddIgnoredActor(this);
+
+		FHitResult Hit;
+		if (World->LineTraceSingleByChannel(Hit, WorldLocation, End, ECC_Visibility, Params))
+		{
+			if (AActor* HitActor = Hit.GetActor())
+			{
+				return HitActor;
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+void ASPlayerPawn::MouseLeftPressed()
+{
+	
+}
+
+void ASPlayerPawn::MouseLeftReleased()
+{
+	if (SPlayer)
+	{
+		SPlayer->Handle_Selection(GetSelectedObject());
+	}
+}
+
+void ASPlayerPawn::MouseRightPressed()
+{
+	
+}
+
+void ASPlayerPawn::MouseRightReleased()
+{
+	
 }

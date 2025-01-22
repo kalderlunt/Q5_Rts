@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "RtsProject/SPlayerPawn.h"
+#include "RtsProject/Public/SPlayerPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 
@@ -25,7 +25,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_CameraBounds_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -54,7 +54,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_DisableRotate_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -83,7 +83,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -112,7 +112,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_EnableRotate_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -145,7 +145,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_Forward_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
@@ -187,7 +187,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_TerrainPosition;
@@ -229,7 +229,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_Right_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
@@ -271,7 +271,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
@@ -309,7 +309,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_RotateLeft_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -338,7 +338,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_RotateRight_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -371,7 +371,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_RotateVertical_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
@@ -413,7 +413,7 @@ struct Z_Construct_UFunction_ASPlayerPawn_Zoom_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
@@ -477,69 +477,69 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "SPlayerPawn.h" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveSpeed_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EdgeScrollSpeed_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RotateSpeed_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RotatePitchMin_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RotatePitchMax_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ZoomSpeed_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinZoom_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxZoom_MetaData[] = {
 		{ "Category", "Settings|Camera" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SceneComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "SPlayerPawn" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "SPlayerPawn" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "SPlayerPawn" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetLocation_MetaData[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetRotation_MetaData[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetZoom_MetaData[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanRotate_MetaData[] = {
-		{ "ModuleRelativePath", "SPlayerPawn.h" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
@@ -561,18 +561,18 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 66206963
-		{ &Z_Construct_UFunction_ASPlayerPawn_DisableRotate, "DisableRotate" }, // 1360418224
-		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 3071334244
-		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 3457198172
-		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 2179694479
-		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 1284685556
-		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 2834279437
-		{ &Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal, "RotateHorizontal" }, // 1444947453
-		{ &Z_Construct_UFunction_ASPlayerPawn_RotateLeft, "RotateLeft" }, // 306765408
-		{ &Z_Construct_UFunction_ASPlayerPawn_RotateRight, "RotateRight" }, // 2332634480
-		{ &Z_Construct_UFunction_ASPlayerPawn_RotateVertical, "RotateVertical" }, // 2978091575
-		{ &Z_Construct_UFunction_ASPlayerPawn_Zoom, "Zoom" }, // 148807129
+		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 4047234879
+		{ &Z_Construct_UFunction_ASPlayerPawn_DisableRotate, "DisableRotate" }, // 177968006
+		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 313748433
+		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 1686387382
+		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 1316584614
+		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 3567289929
+		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 3313539582
+		{ &Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal, "RotateHorizontal" }, // 2132091151
+		{ &Z_Construct_UFunction_ASPlayerPawn_RotateLeft, "RotateLeft" }, // 1400879224
+		{ &Z_Construct_UFunction_ASPlayerPawn_RotateRight, "RotateRight" }, // 2083243165
+		{ &Z_Construct_UFunction_ASPlayerPawn_RotateVertical, "RotateVertical" }, // 171090660
+		{ &Z_Construct_UFunction_ASPlayerPawn_Zoom, "Zoom" }, // 707674686
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -654,14 +654,14 @@ ASPlayerPawn::~ASPlayerPawn() {}
 // End Class ASPlayerPawn
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics
+struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 1368522437U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2268602884U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_1723788296(TEXT("/Script/RtsProject"),
-	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_SPlayerPawn_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_3934142209(TEXT("/Script/RtsProject"),
+	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
