@@ -273,7 +273,7 @@ AActor* ASPlayerPawn::GetSelectedObject()
 		FVector WorldLocation;
 		FVector WorldDirection;
 		SPlayer->DeprojectMousePositionToWorld(WorldLocation, WorldDirection);
- 		FVector End = WorldLocation * 1000000.f + WorldDirection;
+ 		FVector End = WorldDirection * 1000000.f + WorldLocation;
 		FCollisionQueryParams Params;
 		Params.AddIgnoredActor(this);
 
