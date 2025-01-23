@@ -3,6 +3,7 @@
 
 #include "SPlayerPawn.h"
 
+#include "SelectionBox.h"
 #include "SPlayerController.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
@@ -44,6 +45,8 @@ void ASPlayerPawn::BeginPlay()
 
 	// Assign player controller reference
 	SPlayer = Cast<ASPlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
+
+	CreateSelectionBox();
 }
 
 void ASPlayerPawn::GetTerrainPosition(FVector& TerrainPosition) const
@@ -229,12 +232,12 @@ void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("Zoom"), this, &ASPlayerPawn::Zoom);
 	PlayerInputComponent->BindAxis(TEXT("RotateHorizontal"), this, &ASPlayerPawn::RotateHorizontal);
 	PlayerInputComponent->BindAxis(TEXT("RotateVertical"), this, &ASPlayerPawn::RotateVertical);
+	PlayerInputComponent->BindAxis(TEXT("MouseLeft"), this, &ASPlayerPawn::LeftMouseInputHeld);
 	
 	PlayerInputComponent->BindAction(TEXT("RotateRight"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateRight);
 	PlayerInputComponent->BindAction(TEXT("RotateLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateLeft);
 	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::EnableRotate);
 	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Released, this, &ASPlayerPawn::DisableRotate);
-	
 	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::MouseLeftPressed);
 	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Released, this, &ASPlayerPawn::MouseLeftReleased);
 }
@@ -292,16 +295,47 @@ AActor* ASPlayerPawn::GetSelectedObject()
 
 void ASPlayerPawn::MouseLeftPressed()
 {
-	
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	SPlayer->Handle_Selection(nullptr);
+	BoxSelect = false;
+	LeftMouseHitLocation = SPlayer->GetMousePositionOnTerrain();
+}
+
+void ASPlayerPawn::LeftMouseInputHeld(float AxisValue)
+{
+	if (!SPlayer || AxisValue == 0.f)
+	{
+		return;
+	}
+
+	if (SPlayer->GetInputKeyTimeDown(EKeys::LeftMouseButton) >= LeftMouseHoldThreshold)
+	{
+		if (!BoxSelect && SelectionBox)
+		{
+			SelectionBox->Start(LeftMouseHitLocation, TargetRotation);
+			BoxSelect = true;
+		}
+	}
 }
 
 void ASPlayerPawn::MouseLeftReleased()
 {
 	if (SPlayer)
 	{
-		if(GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::White, TEXT("Handle_Selection"));	
-		SPlayer->Handle_Selection(GetSelectedObject());
+		// Check if there is an active box selection
+		if (BoxSelect && SelectionBox)
+		{
+			SelectionBox->End();
+			BoxSelect = false;
+		}
+		else
+		{
+			SPlayer->Handle_Selection(GetSelectedObject());
+		}
 	}
 }
 
@@ -313,4 +347,24 @@ void ASPlayerPawn::MouseRightPressed()
 void ASPlayerPawn::MouseRightReleased()
 {
 	
+}
+
+void ASPlayerPawn::CreateSelectionBox()
+{
+	if (!SelectionBoxClass)
+	{
+		return;
+	}
+
+	if (UWorld* WorldContext = GetWorld())
+	{
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.Instigator = this;
+		SpawnParams.Owner = this;
+		SelectionBox = WorldContext->SpawnActor<ASelectionBox>(SelectionBoxClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+		if (SelectionBox)
+		{
+			SelectionBox->SetOwner(this);
+		}
+	}
 }

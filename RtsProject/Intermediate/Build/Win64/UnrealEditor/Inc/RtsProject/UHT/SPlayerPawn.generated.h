@@ -15,10 +15,12 @@ class AActor;
 #endif
 #define RTSPROJECT_SPlayerPawn_generated_h
 
-#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execCreateSelectionBox); \
 	DECLARE_FUNCTION(execMouseRightReleased); \
 	DECLARE_FUNCTION(execMouseRightPressed); \
 	DECLARE_FUNCTION(execMouseLeftReleased); \
+	DECLARE_FUNCTION(execLeftMouseInputHeld); \
 	DECLARE_FUNCTION(execMouseLeftPressed); \
 	DECLARE_FUNCTION(execGetSelectedObject); \
 	DECLARE_FUNCTION(execCameraBounds); \
@@ -35,7 +37,7 @@ class AActor;
 	DECLARE_FUNCTION(execGetTerrainPosition);
 
 
-#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASPlayerPawn(); \
 	friend struct Z_Construct_UClass_ASPlayerPawn_Statics; \
@@ -44,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(ASPlayerPawn)
 
 
-#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ASPlayerPawn(ASPlayerPawn&&); \
@@ -56,13 +58,13 @@ public: \
 	NO_API virtual ~ASPlayerPawn();
 
 
-#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_12_PROLOG
-#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_GENERATED_BODY \
+#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_13_PROLOG
+#define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_INCLASS_NO_PURE_DECLS \
-	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_15_ENHANCED_CONSTRUCTORS \
+	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_INCLASS_NO_PURE_DECLS \
+	FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

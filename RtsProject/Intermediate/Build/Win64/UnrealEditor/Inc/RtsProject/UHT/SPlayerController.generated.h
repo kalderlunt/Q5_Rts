@@ -22,12 +22,15 @@ RTSPROJECT_API void FSelectedUpdateDelegate_DelegateWrapper(const FMulticastScri
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void Server_ClearSelected_Implementation(); \
 	virtual void Server_DeSelect_Implementation(AActor* ActorToDeSelect); \
+	virtual void Server_Select_Group_Implementation(TArray<AActor*> const& ActorsToSelect); \
 	virtual void Server_Select_Implementation(AActor* ActorToSelect); \
 	DECLARE_FUNCTION(execOnRep_Selected); \
 	DECLARE_FUNCTION(execServer_ClearSelected); \
 	DECLARE_FUNCTION(execServer_DeSelect); \
+	DECLARE_FUNCTION(execServer_Select_Group); \
 	DECLARE_FUNCTION(execServer_Select); \
 	DECLARE_FUNCTION(execActorSelected); \
+	DECLARE_FUNCTION(execGetMousePositionOnTerrain); \
 	DECLARE_FUNCTION(execHandle_Selection);
 
 
