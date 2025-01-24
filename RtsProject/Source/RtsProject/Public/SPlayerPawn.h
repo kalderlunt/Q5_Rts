@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InputActionValue.h"
 #include "SPlayerPawn.generated.h"
 
 class ASelectionBox;
@@ -154,4 +155,11 @@ protected:
 
 	UPROPERTY()
 	FVector LeftMouseHitLocation;
+
+	/** Enhanced Input **/
+
+	UFUNCTION()
+	void Move(const FInputActionValue& Value);
+
+	
 };

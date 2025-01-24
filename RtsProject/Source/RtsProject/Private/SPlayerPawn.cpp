@@ -3,11 +3,13 @@
 
 #include "SPlayerPawn.h"
 
+#include "EnhancedInputComponent.h"
 #include "SelectionBox.h"
 #include "SPlayerController.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Input/PlayerInputActions.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
@@ -49,6 +51,59 @@ void ASPlayerPawn::BeginPlay()
 	CreateSelectionBox();
 }
 
+// Called every frame
+void ASPlayerPawn::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	CameraBounds();
+	//EdgeScroll();
+	
+	// Move the pawn in the desired direction
+	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, MoveSpeed);
+	SetActorLocation(InterpolatedLocation);
+
+	// Zoom the camera in the desired direction
+	const float InterpolatedZoom = UKismetMathLibrary::FInterpTo(SpringArmComponent->TargetArmLength, TargetZoom, DeltaTime, ZoomSpeed);
+	SpringArmComponent->TargetArmLength = InterpolatedZoom;
+
+	// Rotate the camera in the desired direction
+	const FRotator InterpolatedRotation = UKismetMathLibrary::RInterpTo(SpringArmComponent->GetRelativeRotation(), TargetRotation, DeltaTime, RotateSpeed);
+	SpringArmComponent->SetRelativeRotation(InterpolatedRotation);
+}
+
+// Called to bind functionality to input
+void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	/*PlayerInputComponent->BindAxis(TEXT("Forward"), this, &ASPlayerPawn::Forward);
+	PlayerInputComponent->BindAxis(TEXT("Right"), this, &ASPlayerPawn::Right);
+	PlayerInputComponent->BindAxis(TEXT("Zoom"), this, &ASPlayerPawn::Zoom);
+	PlayerInputComponent->BindAxis(TEXT("RotateHorizontal"), this, &ASPlayerPawn::RotateHorizontal);
+	PlayerInputComponent->BindAxis(TEXT("RotateVertical"), this, &ASPlayerPawn::RotateVertical);
+	PlayerInputComponent->BindAxis(TEXT("MouseLeft"), this, &ASPlayerPawn::LeftMouseInputHeld);
+	
+	PlayerInputComponent->BindAction(TEXT("RotateRight"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateRight);
+	PlayerInputComponent->BindAction(TEXT("RotateLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateLeft);
+	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::EnableRotate);
+	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Released, this, &ASPlayerPawn::DisableRotate);
+	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::MouseLeftPressed);
+	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Released, this, &ASPlayerPawn::MouseLeftReleased);*/
+
+	UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+	const ASPlayerController* PlayerController = Cast<ASPlayerController>(GetController());
+
+	// Set up action bindings
+	if (IsValid(Input) && IsValid(PlayerController))
+	{
+		if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerController->GetInputActionsAsset()))
+		{
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Move, this, &ASPlayerPawn::Move);
+		}
+	}
+}
+
 void ASPlayerPawn::GetTerrainPosition(FVector& TerrainPosition) const
 {
 	FHitResult Hit;
@@ -73,11 +128,6 @@ void ASPlayerPawn::Forward(float AxisValue)
 	{
 		return;
 	}
-
-	if (AxisValue >= 0.f)
-		PrintMessage(TEXT("Forward Action"), 0.2f, FColor::Green);
-	else
-		PrintMessage(TEXT("Backward Action"), 0.2f, FColor::Green);
 		
 	TargetLocation = SpringArmComponent->GetForwardVector() * AxisValue * MoveSpeed + TargetLocation;
 	GetTerrainPosition(TargetLocation);
@@ -89,11 +139,6 @@ void ASPlayerPawn::Right(float AxisValue)
 	{
 		return;
 	}
-	
-	if (AxisValue >= 0.f)
-		PrintMessage(TEXT("Right Action"), 0.2f, FColor::Red);
-	else
-		PrintMessage(TEXT("Left Action"), 0.2f, FColor::Red);
 
 	TargetLocation = SpringArmComponent->GetRightVector() * AxisValue * MoveSpeed + TargetLocation;
 	GetTerrainPosition(TargetLocation);
@@ -106,40 +151,29 @@ void ASPlayerPawn::Zoom(float AxisValue)
 		return;
 	}
 
-	if (AxisValue >= 0.f)
-	{
-		FString DebugMessage = FString::Printf(TEXT("Zoom Out Action"));
-		PrintMessage(DebugMessage, 0.5f, FColor::Blue);
-	}
-	else
-		PrintMessage(TEXT("Zoom In Action"), 0.5f, FColor::Blue);
-
 	const float Zoom = AxisValue * 100.f;
 	TargetZoom = FMath::Clamp(Zoom + TargetZoom, MinZoom, MaxZoom);
 }
 
 void ASPlayerPawn::RotateRight()
 {
-	PrintMessage(TEXT("Rotate Right Action"), 0.5f, FColor::Yellow);
+	//PrintMessage(TEXT("Rotate Right Action"), 0.5f, FColor::Yellow);
 	TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(0.f, -45, 0.f));
 }
 
 void ASPlayerPawn::RotateLeft()
 {
-	PrintMessage(TEXT("Rotate Left Action"), 0.5f, FColor::Yellow);
 	TargetRotation = UKismetMathLibrary::ComposeRotators(TargetRotation, FRotator(0.f, 45, 0.f));
 }
 
 void ASPlayerPawn::EnableRotate()
 {
-	PrintMessage(TEXT("Enable Rotate Action"), 1.f, FColor::Orange);
 	CanRotate = true;
 }
 
 
 void ASPlayerPawn::DisableRotate()
 {
-	PrintMessage(TEXT("Disable Rotate Action"), 1.f, FColor::Orange);
 	CanRotate = false;
 }
 
@@ -199,47 +233,6 @@ void ASPlayerPawn::EdgeScroll()
 			Forward(EdgeScrollSpeed); // Forward
 		}
 	}
-}
-
-// Called every frame
-void ASPlayerPawn::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	CameraBounds();
-	EdgeScroll();
-	
-	// Move the pawn in the desired direction
-	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, MoveSpeed);
-	SetActorLocation(InterpolatedLocation);
-
-	// Zoom the camera in the desired direction
-	const float InterpolatedZoom = UKismetMathLibrary::FInterpTo(SpringArmComponent->TargetArmLength, TargetZoom, DeltaTime, ZoomSpeed);
-	SpringArmComponent->TargetArmLength = InterpolatedZoom;
-
-	// Rotate the camera in the desired direction
-	const FRotator InterpolatedRotation = UKismetMathLibrary::RInterpTo(SpringArmComponent->GetRelativeRotation(), TargetRotation, DeltaTime, RotateSpeed);
-	SpringArmComponent->SetRelativeRotation(InterpolatedRotation);
-}
-
-// Called to bind functionality to input
-void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	PlayerInputComponent->BindAxis(TEXT("Forward"), this, &ASPlayerPawn::Forward);
-	PlayerInputComponent->BindAxis(TEXT("Right"), this, &ASPlayerPawn::Right);
-	PlayerInputComponent->BindAxis(TEXT("Zoom"), this, &ASPlayerPawn::Zoom);
-	PlayerInputComponent->BindAxis(TEXT("RotateHorizontal"), this, &ASPlayerPawn::RotateHorizontal);
-	PlayerInputComponent->BindAxis(TEXT("RotateVertical"), this, &ASPlayerPawn::RotateVertical);
-	PlayerInputComponent->BindAxis(TEXT("MouseLeft"), this, &ASPlayerPawn::LeftMouseInputHeld);
-	
-	PlayerInputComponent->BindAction(TEXT("RotateRight"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateRight);
-	PlayerInputComponent->BindAction(TEXT("RotateLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::RotateLeft);
-	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::EnableRotate);
-	PlayerInputComponent->BindAction(TEXT("Rotate"), EInputEvent::IE_Released, this, &ASPlayerPawn::DisableRotate);
-	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Pressed, this, &ASPlayerPawn::MouseLeftPressed);
-	PlayerInputComponent->BindAction(TEXT("MouseLeft"), EInputEvent::IE_Released, this, &ASPlayerPawn::MouseLeftReleased);
 }
 
 void ASPlayerPawn::CameraBounds()
@@ -366,5 +359,20 @@ void ASPlayerPawn::CreateSelectionBox()
 		{
 			SelectionBox->SetOwner(this);
 		}
+	}
+}
+
+void ASPlayerPawn::Move(const FInputActionValue& Value)
+{
+
+	if (!SpringArmComponent)
+	{
+		return;
+	}
+
+	if (ensure(Value.GetValueType() == EInputActionValueType::Axis2D))
+	{
+		TargetLocation += SpringArmComponent->GetTargetRotation().RotateVector(Value.Get<FVector>()) * MoveSpeed;
+		GetTerrainPosition(TargetLocation);
 	}
 }

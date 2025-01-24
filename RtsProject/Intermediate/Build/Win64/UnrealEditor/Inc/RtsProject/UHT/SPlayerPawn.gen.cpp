@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "RtsProject/Public/SPlayerPawn.h"
+#include "EnhancedInput/Public/InputActionValue.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 
@@ -17,6 +18,7 @@ ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APawn();
 ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+ENHANCEDINPUT_API UScriptStruct* Z_Construct_UScriptStruct_FInputActionValue();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASelectionBox_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerController_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn();
@@ -452,6 +454,57 @@ DEFINE_FUNCTION(ASPlayerPawn::execMouseRightReleased)
 }
 // End Class ASPlayerPawn Function MouseRightReleased
 
+// Begin Class ASPlayerPawn Function Move
+struct Z_Construct_UFunction_ASPlayerPawn_Move_Statics
+{
+	struct SPlayerPawn_eventMove_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Enhanced Input **/" },
+#endif
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Enhanced Input *" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_Move_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventMove_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_Move_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_Move_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Move_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_Move_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "Move", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_Move_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Move_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_Move_Statics::SPlayerPawn_eventMove_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Move_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_Move_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_Move_Statics::SPlayerPawn_eventMove_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_Move()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_Move_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execMove)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Move(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function Move
+
 // Begin Class ASPlayerPawn Function Right
 struct Z_Construct_UFunction_ASPlayerPawn_Right_Statics
 {
@@ -696,6 +749,7 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 		{ "MouseLeftReleased", &ASPlayerPawn::execMouseLeftReleased },
 		{ "MouseRightPressed", &ASPlayerPawn::execMouseRightPressed },
 		{ "MouseRightReleased", &ASPlayerPawn::execMouseRightReleased },
+		{ "Move", &ASPlayerPawn::execMove },
 		{ "Right", &ASPlayerPawn::execRight },
 		{ "RotateHorizontal", &ASPlayerPawn::execRotateHorizontal },
 		{ "RotateLeft", &ASPlayerPawn::execRotateLeft },
@@ -840,6 +894,7 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased, "MouseLeftReleased" }, // 2182905322
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed, "MouseRightPressed" }, // 4031188593
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseRightReleased, "MouseRightReleased" }, // 2372769435
+		{ &Z_Construct_UFunction_ASPlayerPawn_Move, "Move" }, // 3397606101
 		{ &Z_Construct_UFunction_ASPlayerPawn_Right, "Right" }, // 3313539582
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateHorizontal, "RotateHorizontal" }, // 2132091151
 		{ &Z_Construct_UFunction_ASPlayerPawn_RotateLeft, "RotateLeft" }, // 1400879224
@@ -946,10 +1001,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2908699193U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 148311478U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_3420293535(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_1391097959(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

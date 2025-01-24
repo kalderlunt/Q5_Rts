@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "SPlayerController.generated.h"
 
+class UInputMappingContext;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSelectedUpdateDelegate);
 
 /**
@@ -53,4 +54,24 @@ protected:
 
 	UPROPERTY()
 	FSelectedUpdateDelegate OnSelectedUpdated;
+
+	/** Enhanced Input **/\
+public:
+	UFUNCTION()
+	void AddInputMapping(const UInputMappingContext* InputMapping, const int32 MappingPriority = 0) const;
+
+	UFUNCTION()
+	void RemoveInputMapping(const UInputMappingContext* InputMapping) const;
+
+	UFUNCTION()
+	void SetInputDefault(const bool Enabled = true) const;
+
+	UFUNCTION()
+	UDataAsset* GetInputActionsAsset() const { return PlayerActionsAsset; }
+
+protected:
+	virtual void SetupInputComponent() override;
+
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Player Settings")
+	UDataAsset* PlayerActionsAsset;
 };

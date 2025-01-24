@@ -3,7 +3,9 @@
 
 #include "SPlayerController.h"
 
+#include "EnhancedInputSubsystems.h"
 #include "Selectable.h"
+#include "Input/PlayerInputActions.h"
 #include "Net/UnrealNetwork.h"
 
 ASPlayerController::ASPlayerController(const FObjectInitializer& ObjectInitializer)
@@ -149,4 +151,59 @@ void ASPlayerController::Server_ClearSelected_Implementation()
 void ASPlayerController::OnRep_Selected()
 {
 	OnSelectedUpdated.Broadcast();
+}
+
+/** Enhanced Input **/
+
+void ASPlayerController::AddInputMapping(const UInputMappingContext* InputMapping, const int32 MappingPriority) const
+{
+	if (UEnhancedInputLocalPlayerSubsystem* InputSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+	{
+		ensure(InputMapping);
+
+		if (!InputSubsystem->HasMappingContext(InputMapping))
+		{
+			InputSubsystem->AddMappingContext(InputMapping, MappingPriority);
+		}
+	}
+}
+
+void ASPlayerController::RemoveInputMapping(const UInputMappingContext* InputMapping) const
+{
+	if (UEnhancedInputLocalPlayerSubsystem* InputSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+	{
+		ensure(InputMapping);
+		InputSubsystem->RemoveMappingContext(InputMapping);
+	}
+}
+
+void ASPlayerController::SetInputDefault(const bool Enabled) const
+{
+	ensureMsgf(PlayerActionsAsset, TEXT("PlayerActionsAsset is NULL!"));
+
+	if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerActionsAsset))
+	{
+
+		ensure(PlayerActions->MappingContextDefault);
+
+		if (Enabled)
+		{
+			AddInputMapping(PlayerActions->MappingContextDefault, PlayerActions->MapPriorityDefault);
+		}
+		else
+		{
+			RemoveInputMapping(PlayerActions->MappingContextDefault);
+		}
+	}
+}
+
+void ASPlayerController::SetupInputComponent()
+{
+	Super::SetupInputComponent();
+	
+	if (UEnhancedInputLocalPlayerSubsystem* InputSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+	{
+		InputSubsystem->ClearAllMappings();
+		SetInputDefault();
+	}
 }
