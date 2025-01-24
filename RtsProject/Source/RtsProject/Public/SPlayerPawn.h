@@ -32,66 +32,40 @@ protected:
 
 	UFUNCTION()
 	void GetTerrainPosition(FVector& TerrainPosition) const;
-	
-	UFUNCTION()
-	void Forward(float AxisValue);
-
-	UFUNCTION()
-	void Right(float AxisValue);
-
-	UFUNCTION()
-	void Zoom(float AxisValue);
-
-	UFUNCTION()
-	void RotateRight();
-
-	UFUNCTION()
-	void RotateLeft();
-	
-	UFUNCTION()
-	void EnableRotate();
-
-	UFUNCTION()
-	void DisableRotate();
-	
-	UFUNCTION()
-	void RotateHorizontal(float AxisValue);
-	
-	UFUNCTION()
-	void RotateVertical(float AxisValue);
 
 	UFUNCTION()
 	void EdgeScroll();
 	
-	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float MoveSpeed = 20.f;
+	float MoveSpeed;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float EdgeScrollSpeed = 3.f;
+	float EdgeScrollSpeed;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float RotateSpeed = 2.f;
+	float RotateSpeed;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float RotatePitchMin = 10.f;
+	float RotatePitchMin;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float RotatePitchMax = 80.f;
+	float RotatePitchMax;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float ZoomSpeed = 2.f;
+	float ZoomSpeed;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float MinZoom = 500.f;
+	float MinZoom;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float MaxZoom = 4000.f;
+	float MaxZoom;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
+	float Smoothing;
 	
 private:
 	UFUNCTION()
 	void CameraBounds();
-	void PrintMessage(FString Message, float TimeToDisplay, FColor Color);
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;
@@ -111,9 +85,6 @@ private:
 	UPROPERTY()
 	float TargetZoom;
 
-	UPROPERTY()
-	bool CanRotate;
-
 	/** Mouse Input **/
 protected:
 
@@ -121,28 +92,10 @@ protected:
 	AActor* GetSelectedObject();
 
 	UFUNCTION()
-	void MouseLeftPressed();
-
-	UFUNCTION()
-	void LeftMouseInputHeld(float AxisValue);
-
-	UFUNCTION()
-	void MouseLeftReleased();
-
-	UFUNCTION()
-	void MouseRightPressed();
-
-	UFUNCTION()
-	void MouseRightReleased();
-
-	UFUNCTION()
 	void CreateSelectionBox();
 
 	UPROPERTY()
 	ASPlayerController* SPlayer;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Mouse")
-	float LeftMouseHoldThreshold = 0.15f;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Mouse")
 	TSubclassOf<ASelectionBox> SelectionBoxClass;
@@ -154,12 +107,30 @@ protected:
 	bool BoxSelect;
 
 	UPROPERTY()
-	FVector LeftMouseHitLocation;
+	FVector SelectHitLocation;
 
 	/** Enhanced Input **/
 
 	UFUNCTION()
 	void Move(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void Look(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void Rotate(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void Select(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void SelectHold(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void SelectEnd(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void Zoom(const FInputActionValue& Value);
 
 	
 };

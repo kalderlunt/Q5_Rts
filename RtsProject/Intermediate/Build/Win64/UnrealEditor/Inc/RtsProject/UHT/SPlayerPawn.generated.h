@@ -17,25 +17,17 @@ struct FInputActionValue;
 #define RTSPROJECT_SPlayerPawn_generated_h
 
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execZoom); \
+	DECLARE_FUNCTION(execSelectEnd); \
+	DECLARE_FUNCTION(execSelectHold); \
+	DECLARE_FUNCTION(execSelect); \
+	DECLARE_FUNCTION(execRotate); \
+	DECLARE_FUNCTION(execLook); \
 	DECLARE_FUNCTION(execMove); \
 	DECLARE_FUNCTION(execCreateSelectionBox); \
-	DECLARE_FUNCTION(execMouseRightReleased); \
-	DECLARE_FUNCTION(execMouseRightPressed); \
-	DECLARE_FUNCTION(execMouseLeftReleased); \
-	DECLARE_FUNCTION(execLeftMouseInputHeld); \
-	DECLARE_FUNCTION(execMouseLeftPressed); \
 	DECLARE_FUNCTION(execGetSelectedObject); \
 	DECLARE_FUNCTION(execCameraBounds); \
 	DECLARE_FUNCTION(execEdgeScroll); \
-	DECLARE_FUNCTION(execRotateVertical); \
-	DECLARE_FUNCTION(execRotateHorizontal); \
-	DECLARE_FUNCTION(execDisableRotate); \
-	DECLARE_FUNCTION(execEnableRotate); \
-	DECLARE_FUNCTION(execRotateLeft); \
-	DECLARE_FUNCTION(execRotateRight); \
-	DECLARE_FUNCTION(execZoom); \
-	DECLARE_FUNCTION(execRight); \
-	DECLARE_FUNCTION(execForward); \
 	DECLARE_FUNCTION(execGetTerrainPosition);
 
 
