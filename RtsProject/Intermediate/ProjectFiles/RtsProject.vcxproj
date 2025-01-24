@@ -329,6 +329,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus /Yu"D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\RtsProjectEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Private\SelectionBox.cpp" />
     <ClCompile Include="..\..\Source\RtsProject\Private\SPlayerController.cpp" />
     <ClCompile Include="..\..\Source\RtsProject\Public\SPlayerPawn.h">
       <AssemblerOutput>NoListing</AssemblerOutput>
@@ -1073,6 +1074,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\RtsProject\Public\Selectable.h" />
+    <ClInclude Include="..\..\Source\RtsProject\Public\SelectionBox.h" />
     <ClInclude Include="..\..\Source\RtsProject\Public\SPlayerController.h" />
   </ItemGroup>
   <PropertyGroup>

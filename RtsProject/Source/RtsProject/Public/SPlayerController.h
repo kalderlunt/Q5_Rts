@@ -22,6 +22,10 @@ public:
 
 	UFUNCTION()
 	void Handle_Selection(AActor* ActorToSelect);
+	void Handle_Selection(TArray<AActor*> ActorsToSelect);
+
+	UFUNCTION()
+	FVector GetMousePositionOnTerrain() const;
 
 protected:
 	virtual void BeginPlay() override;
@@ -31,7 +35,10 @@ protected:
 
 	UFUNCTION(Server, Reliable)
 	void Server_Select(AActor* ActorToSelect);
-
+	
+	UFUNCTION(Server, Reliable)
+	void Server_Select_Group(const TArray<AActor*>& ActorsToSelect);
+	
 	UFUNCTION(Server, Reliable)
 	void Server_DeSelect(AActor* ActorToDeSelect);
 

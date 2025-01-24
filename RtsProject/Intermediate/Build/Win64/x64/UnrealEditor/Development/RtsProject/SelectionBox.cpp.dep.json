@@ -1,0 +1,37 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\source\\rtsproject\\private\\selectionbox.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\x64\\rtsprojecteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsproject\\definitions.rtsproject.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\source\\rtsproject\\public\\selectionbox.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsproject\\uht\\selectionbox.generated.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\source\\rtsproject\\public\\selectable.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsproject\\uht\\selectable.generated.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\source\\rtsproject\\public\\splayercontroller.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsproject\\uht\\splayercontroller.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\boxcomponent.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\decalcomponent.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\decalcomponent.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetsystemlibrary.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\sound\\dialoguetypes.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\dialoguetypes.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.h",
+            "d:\\unreal\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetmathlibrary.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

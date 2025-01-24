@@ -10,12 +10,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APawn();
 ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+RTSPROJECT_API UClass* Z_Construct_UClass_ASelectionBox_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerController_NoRegister();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn();
 RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn_NoRegister();
@@ -50,6 +52,35 @@ DEFINE_FUNCTION(ASPlayerPawn::execCameraBounds)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function CameraBounds
+
+// Begin Class ASPlayerPawn Function CreateSelectionBox
+struct Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "CreateSelectionBox", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execCreateSelectionBox)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CreateSelectionBox();
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function CreateSelectionBox
 
 // Begin Class ASPlayerPawn Function DisableRotate
 struct Z_Construct_UFunction_ASPlayerPawn_DisableRotate_Statics
@@ -262,6 +293,48 @@ DEFINE_FUNCTION(ASPlayerPawn::execGetTerrainPosition)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function GetTerrainPosition
+
+// Begin Class ASPlayerPawn Function LeftMouseInputHeld
+struct Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics
+{
+	struct SPlayerPawn_eventLeftMouseInputHeld_Parms
+	{
+		float AxisValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::NewProp_AxisValue = { "AxisValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventLeftMouseInputHeld_Parms, AxisValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::NewProp_AxisValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "LeftMouseInputHeld", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::SPlayerPawn_eventLeftMouseInputHeld_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::SPlayerPawn_eventLeftMouseInputHeld_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execLeftMouseInputHeld)
+{
+	P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->LeftMouseInputHeld(Z_Param_AxisValue);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function LeftMouseInputHeld
 
 // Begin Class ASPlayerPawn Function MouseLeftPressed
 struct Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed_Statics
@@ -611,12 +684,14 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 	UClass* Class = ASPlayerPawn::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CameraBounds", &ASPlayerPawn::execCameraBounds },
+		{ "CreateSelectionBox", &ASPlayerPawn::execCreateSelectionBox },
 		{ "DisableRotate", &ASPlayerPawn::execDisableRotate },
 		{ "EdgeScroll", &ASPlayerPawn::execEdgeScroll },
 		{ "EnableRotate", &ASPlayerPawn::execEnableRotate },
 		{ "Forward", &ASPlayerPawn::execForward },
 		{ "GetSelectedObject", &ASPlayerPawn::execGetSelectedObject },
 		{ "GetTerrainPosition", &ASPlayerPawn::execGetTerrainPosition },
+		{ "LeftMouseInputHeld", &ASPlayerPawn::execLeftMouseInputHeld },
 		{ "MouseLeftPressed", &ASPlayerPawn::execMouseLeftPressed },
 		{ "MouseLeftReleased", &ASPlayerPawn::execMouseLeftReleased },
 		{ "MouseRightPressed", &ASPlayerPawn::execMouseRightPressed },
@@ -708,6 +783,23 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SPlayer_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LeftMouseHoldThreshold_MetaData[] = {
+		{ "Category", "Settings|Mouse" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SelectionBoxClass_MetaData[] = {
+		{ "Category", "Settings|Mouse" },
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SelectionBox_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BoxSelect_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LeftMouseHitLocation_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_EdgeScrollSpeed;
@@ -726,16 +818,24 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static void NewProp_CanRotate_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_CanRotate;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SPlayer;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_LeftMouseHoldThreshold;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_SelectionBoxClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SelectionBox;
+	static void NewProp_BoxSelect_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_BoxSelect;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_LeftMouseHitLocation;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 4047234879
+		{ &Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox, "CreateSelectionBox" }, // 372051341
 		{ &Z_Construct_UFunction_ASPlayerPawn_DisableRotate, "DisableRotate" }, // 177968006
 		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 313748433
 		{ &Z_Construct_UFunction_ASPlayerPawn_EnableRotate, "EnableRotate" }, // 1686387382
 		{ &Z_Construct_UFunction_ASPlayerPawn_Forward, "Forward" }, // 1316584614
 		{ &Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject, "GetSelectedObject" }, // 584511560
 		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 3567289929
+		{ &Z_Construct_UFunction_ASPlayerPawn_LeftMouseInputHeld, "LeftMouseInputHeld" }, // 4036932735
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseLeftPressed, "MouseLeftPressed" }, // 2311930029
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseLeftReleased, "MouseLeftReleased" }, // 2182905322
 		{ &Z_Construct_UFunction_ASPlayerPawn_MouseRightPressed, "MouseRightPressed" }, // 4031188593
@@ -773,6 +873,15 @@ void Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit(void* Obj
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate = { "CanRotate", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASPlayerPawn), &Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CanRotate_MetaData), NewProp_CanRotate_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SPlayer = { "SPlayer", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, SPlayer), Z_Construct_UClass_ASPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SPlayer_MetaData), NewProp_SPlayer_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_LeftMouseHoldThreshold = { "LeftMouseHoldThreshold", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, LeftMouseHoldThreshold), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LeftMouseHoldThreshold_MetaData), NewProp_LeftMouseHoldThreshold_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SelectionBoxClass = { "SelectionBoxClass", nullptr, (EPropertyFlags)0x0024080000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, SelectionBoxClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ASelectionBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SelectionBoxClass_MetaData), NewProp_SelectionBoxClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SelectionBox = { "SelectionBox", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, SelectionBox), Z_Construct_UClass_ASelectionBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SelectionBox_MetaData), NewProp_SelectionBox_MetaData) };
+void Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_BoxSelect_SetBit(void* Obj)
+{
+	((ASPlayerPawn*)Obj)->BoxSelect = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_BoxSelect = { "BoxSelect", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASPlayerPawn), &Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_BoxSelect_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BoxSelect_MetaData), NewProp_BoxSelect_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_LeftMouseHitLocation = { "LeftMouseHitLocation", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerPawn, LeftMouseHitLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LeftMouseHitLocation_MetaData), NewProp_LeftMouseHitLocation_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerPawn_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_MoveSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_EdgeScrollSpeed,
@@ -790,6 +899,11 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerP
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_TargetZoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_CanRotate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SPlayer,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_LeftMouseHoldThreshold,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SelectionBoxClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_SelectionBox,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_BoxSelect,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerPawn_Statics::NewProp_LeftMouseHitLocation,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASPlayerPawn_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ASPlayerPawn_Statics::DependentSingletons[])() = {
@@ -832,10 +946,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3154590297U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2908699193U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_4121567753(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_3420293535(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
