@@ -132,5 +132,13 @@ protected:
 	UFUNCTION()
 	void Zoom(const FInputActionValue& Value);
 
+	UFUNCTION()
+	void TestPlacement(const FInputActionValue& Value);
 	
+	/** Placement **/
+	UFUNCTION()
+	void Place(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void PlaceCancel(const FInputActionValue& Value);
 };

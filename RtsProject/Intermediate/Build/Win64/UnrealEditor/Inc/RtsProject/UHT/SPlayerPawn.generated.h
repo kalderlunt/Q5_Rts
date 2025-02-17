@@ -17,6 +17,9 @@ struct FInputActionValue;
 #define RTSPROJECT_SPlayerPawn_generated_h
 
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execPlaceCancel); \
+	DECLARE_FUNCTION(execPlace); \
+	DECLARE_FUNCTION(execTestPlacement); \
 	DECLARE_FUNCTION(execZoom); \
 	DECLARE_FUNCTION(execSelectEnd); \
 	DECLARE_FUNCTION(execSelectHold); \

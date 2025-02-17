@@ -2,14 +2,16 @@
 
 
 #include "SPlayerController.h"
-
 #include "EnhancedInputSubsystems.h"
+#include "PlacementPreview.h"
+#include "RtsProjectCharacter.h"
 #include "Selectable.h"
 #include "Input/PlayerInputActions.h"
 #include "Net/UnrealNetwork.h"
 
 ASPlayerController::ASPlayerController(const FObjectInitializer& ObjectInitializer)
 {
+	bPlacementModeEnabled = false;
 }
 
 void ASPlayerController::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
@@ -59,6 +61,34 @@ FVector ASPlayerController::GetMousePositionOnTerrain() const
 	}
 	
 	return FVector::ZeroVector;
+}
+
+FVector ASPlayerController::GetMousePositionOnSurface() const
+{
+	FVector WorldLocation;
+	FVector WorldDirection;
+	DeprojectMousePositionToWorld(WorldLocation, WorldDirection);
+	FHitResult OutHit;
+
+	if (GetWorld()->LineTraceSingleByChannel(OutHit, WorldLocation, WorldLocation + (WorldDirection * 1000000.f), ECC_Visibility))
+	{
+		if (OutHit.bBlockingHit)
+		{
+			return OutHit.Location;
+		}
+	}
+	
+	return FVector::ZeroVector;
+}
+
+void ASPlayerController::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	if (bPlacementModeEnabled && PlacementPreviewActor)
+	{
+		UpdatePlacement();
+	}
 }
 
 void ASPlayerController::BeginPlay()
@@ -197,6 +227,25 @@ void ASPlayerController::SetInputDefault(const bool Enabled) const
 	}
 }
 
+void ASPlayerController::SetInputPlacement(const bool Enabled) const
+{
+	if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerActionsAsset))
+	{
+		ensure(PlayerActions->MappingContextPlacement);
+
+		if (Enabled)
+		{
+			AddInputMapping(PlayerActions->MappingContextPlacement, PlayerActions->MapPriorityPlacement);
+			SetInputDefault(!Enabled);
+		}
+		else
+		{
+			RemoveInputMapping(PlayerActions->MappingContextPlacement);
+			SetInputDefault();
+		}
+	}
+}
+
 void ASPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
@@ -206,4 +255,91 @@ void ASPlayerController::SetupInputComponent()
 		InputSubsystem->ClearAllMappings();
 		SetInputDefault();
 	}
+}
+
+void ASPlayerController::SetPlacementPreview()
+{
+	if (PreviewActorType && !bPlacementModeEnabled)
+	{
+		FTransform SpawnTransform;
+		SpawnTransform.SetLocation(GetMousePositionOnSurface());
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+		PlacementPreviewActor = GetWorld()->SpawnActor<APlacementPreview>(PreviewActorType, SpawnTransform, SpawnParams);
+
+		if (PlacementPreviewActor)
+		{
+			SetInputPlacement();
+			bPlacementModeEnabled = true;
+		}
+	}
+}
+
+void ASPlayerController::Place()
+{
+	if (!IsPlacementModeEnabled() || !PlacementPreviewActor)
+	{
+		return;
+	}
+
+	// Disable placement mode
+	bPlacementModeEnabled = false;
+
+	// Disable placement input
+	SetInputPlacement(false);
+
+	// Send to server for authoritative spawning
+	Server_Place(PlacementPreviewActor);
+}
+
+void ASPlayerController::PlaceCancel()
+{
+	if (!IsPlacementModeEnabled() || !PlacementPreviewActor)
+	{
+		return;
+	}
+
+	// Disable placment mode
+	bPlacementModeEnabled = false;
+
+	// Disable placement input
+	SetInputPlacement(false);
+
+	EndPlacement();
+}
+
+void ASPlayerController::UpdatePlacement() const
+{
+	if (!PlacementPreviewActor)
+	{
+		return;
+	}
+
+	// Update placeable actor position with mouse position (on tick)
+	PlacementPreviewActor->SetActorLocation(GetMousePositionOnSurface());
+}
+
+void ASPlayerController::Server_Place_Implementation(AActor* PlacementPreviewToSpawn)
+{
+	if (const APlacementPreview* Preview = Cast<APlacementPreview>(PlacementPreviewToSpawn))
+	{
+		FTransform SpawnTransform;
+		FVector Location = Preview->GetActorLocation();
+		SpawnTransform.SetLocation(FVector(Location.X, Location.Y,  Location.Z + 100.f));
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+		if (ARtsProjectCharacter* NewUnit = GetWorld()->SpawnActor<ARtsProjectCharacter>(Preview->PlaceableClass, SpawnTransform, SpawnParams))
+		{
+			NewUnit->SetOwner(this);
+		}
+	}
+
+	EndPlacement();
+}
+
+void ASPlayerController::EndPlacement_Implementation()
+{
+	PlacementPreviewActor->Destroy();
 }

@@ -94,11 +94,17 @@ void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	{
 		if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerController->GetInputActionsAsset()))
 		{
+			/** Default */
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Move, this, &ASPlayerPawn::Move);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Look, this, &ASPlayerPawn::Look);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Zoom, this, &ASPlayerPawn::Zoom);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Rotate, this, &ASPlayerPawn::Rotate);
 			EPlayerInputActions::BindInput_StartTriggerComplete(Input, PlayerActions->Select, this, &ASPlayerPawn::Select, &ASPlayerPawn::SelectHold, &ASPlayerPawn::SelectEnd);
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->TestPlacement, this, &ASPlayerPawn::TestPlacement);
+			
+			/** Placement */
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Place, this, &ASPlayerPawn::Place);
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->PlaceCancel, this, &ASPlayerPawn::PlaceCancel);
 		}
 	}
 }
@@ -317,5 +323,41 @@ void ASPlayerPawn::Zoom(const FInputActionValue& Value)
 	if (ensure(Value.GetValueType() == EInputActionValueType::Axis1D))
 	{
 		TargetZoom = FMath::Clamp(TargetZoom + (Value.Get<float>() * ZoomSpeed), MinZoom, MaxZoom);
+	}
+}
+
+void ASPlayerPawn::TestPlacement(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	SPlayer->SetPlacementPreview();
+}
+
+void ASPlayerPawn::Place(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	if (SPlayer->IsPlacementModeEnabled())
+	{
+		SPlayer->Place();
+	}
+}
+
+void ASPlayerPawn::PlaceCancel(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	if (SPlayer->IsPlacementModeEnabled())
+	{
+		SPlayer->PlaceCancel();
 	}
 }

@@ -12,6 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\RtsProject.sln.DotSettings.user" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -36,35 +37,80 @@
     <None Include="..\..\Source\RtsProject\RtsProject.Build.cs">
       <Filter>Source\RtsProject</Filter>
     </None>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProject.cpp">
-      <Filter>Source\RtsProject</Filter>
+    <Filter Include="Source\RtsProject\Interfaces">
+      <UniqueIdentifier>{FB671864-9FE0-3204-905B-52B1A21F7EDD}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Interfaces\Selectable.cpp">
+      <Filter>Source\RtsProject\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProject.h">
-      <Filter>Source\RtsProject</Filter>
+    <Filter Include="Source\RtsProject\Private">
+      <UniqueIdentifier>{EDF4F740-0A18-3379-BD25-532B8DA41EE4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\PlacementPreview.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectCharacter.cpp">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\RtsProject.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectCharacter.h">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\RtsProjectCharacter.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectGameMode.cpp">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\RtsProjectGameMode.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectGameMode.h">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\RtsProjectPlayerController.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectPlayerController.cpp">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\SelectionBox.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\RtsProjectPlayerController.h">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\SPlayerController.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\SPlayerPawn.cpp">
-      <Filter>Source\RtsProject</Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\SPlayerPawn.cpp">
+      <Filter>Source\RtsProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\RtsProject\SPlayerPawn.h">
-      <Filter>Source\RtsProject</Filter>
+    <Filter Include="Source\RtsProject\Private\Input">
+      <UniqueIdentifier>{AEBD832F-DF87-3CA7-A69B-9F71167E0BA3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Private\Input\PlayerInputActions.cpp">
+      <Filter>Source\RtsProject\Private\Input</Filter>
+    </ClCompile>
+    <Filter Include="Source\RtsProject\Public">
+      <UniqueIdentifier>{5BA6A75A-BFCF-34D5-86A0-4F3E125C290F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Public\PlacementPreview.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\RtsProject.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\RtsProjectCharacter.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\RtsProjectGameMode.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\RtsProjectPlayerController.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\Selectable.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\SelectionBox.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\SPlayerController.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RtsProject\Public\SPlayerPawn.h">
+      <Filter>Source\RtsProject\Public</Filter>
+    </ClCompile>
+    <Filter Include="Source\RtsProject\Public\Input">
+      <UniqueIdentifier>{EFB64CAF-E81F-3A59-B5C1-BDA50997F80D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RtsProject\Public\Input\PlayerInputActions.h">
+      <Filter>Source\RtsProject\Public\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

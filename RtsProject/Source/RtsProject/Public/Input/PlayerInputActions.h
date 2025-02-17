@@ -40,6 +40,22 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Default")
 	UInputAction* Rotate;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Default")
+	UInputAction* TestPlacement;
+
+	/** Placement Mapping Context **/
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
+	UInputMappingContext* MappingContextPlacement;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
+	int32 MapPriorityPlacement;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
+	UInputAction* Place;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
+	UInputAction* PlaceCancel;
 };
 
 namespace EPlayerInputActions

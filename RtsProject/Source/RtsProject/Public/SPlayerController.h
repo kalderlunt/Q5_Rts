@@ -27,6 +27,11 @@ public:
 
 	UFUNCTION()
 	FVector GetMousePositionOnTerrain() const;
+	
+	UFUNCTION()
+	FVector GetMousePositionOnSurface() const;
+
+	virtual void Tick(float DeltaSeconds) override;
 
 protected:
 	virtual void BeginPlay() override;
@@ -67,6 +72,9 @@ public:
 	void SetInputDefault(const bool Enabled = true) const;
 
 	UFUNCTION()
+	void SetInputPlacement(const bool Enabled = true) const;
+
+	UFUNCTION()
 	UDataAsset* GetInputActionsAsset() const { return PlayerActionsAsset; }
 
 protected:
@@ -74,4 +82,40 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Player Settings")
 	UDataAsset* PlayerActionsAsset;
+	
+	/** Placement **/
+public:
+	UFUNCTION()
+	bool IsPlacementModeEnabled() const {return bPlacementModeEnabled; }
+
+	UFUNCTION()
+	void SetPlacementPreview();
+
+	UFUNCTION()
+	void Place();
+
+	UFUNCTION()
+	void PlaceCancel();
+
+protected:
+
+	UFUNCTION()
+	void UpdatePlacement() const;
+	
+	UFUNCTION(Server, Reliable)
+	void Server_Place(AActor* PlacementPreviewToSpawn);
+
+	UFUNCTION(Client, Reliable)
+	void EndPlacement();
+	
+	UPROPERTY()
+	bool bPlacementModeEnabled;
+
+	UPROPERTY()
+	AActor* PlacementPreviewActor;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settings|Placeable")
+	TSubclassOf<AActor> PreviewActorType;
+
+	
 };

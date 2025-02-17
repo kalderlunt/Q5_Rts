@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\RtsProjectEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\PlacementPreview.gen.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\PlayerInputActions.gen.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\RtsProject.init.gen.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\RtsProjectCharacter.gen.cpp.obj"
@@ -23,6 +24,7 @@
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\RtsProjectPlayerController.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\SelectionBox.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\PerModuleInline.gen.cpp.obj"
+"D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\PlacementPreview.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\SPlayerController.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\SPlayerPawn.cpp.obj"
 "D:\OneDrive - La Horde\B2\Quetes\Q5_Rts\Q5_Rts\RtsProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\RtsProject\PlayerInputActions.cpp.obj"

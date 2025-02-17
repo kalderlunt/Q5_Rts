@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSPlayerController() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController();
@@ -98,6 +99,41 @@ DEFINE_FUNCTION(ASPlayerController::execActorSelected)
 }
 // End Class ASPlayerController Function ActorSelected
 
+// Begin Class ASPlayerController Function EndPlacement
+static const FName NAME_ASPlayerController_EndPlacement = FName(TEXT("EndPlacement"));
+void ASPlayerController::EndPlacement()
+{
+	UFunction* Func = FindFunctionChecked(NAME_ASPlayerController_EndPlacement);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_ASPlayerController_EndPlacement_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_EndPlacement_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "EndPlacement", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01080CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_EndPlacement_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_EndPlacement_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerController_EndPlacement()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_EndPlacement_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execEndPlacement)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->EndPlacement_Implementation();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function EndPlacement
+
 // Begin Class ASPlayerController Function GetInputActionsAsset
 struct Z_Construct_UFunction_ASPlayerController_GetInputActionsAsset_Statics
 {
@@ -138,6 +174,47 @@ DEFINE_FUNCTION(ASPlayerController::execGetInputActionsAsset)
 	P_NATIVE_END;
 }
 // End Class ASPlayerController Function GetInputActionsAsset
+
+// Begin Class ASPlayerController Function GetMousePositionOnSurface
+struct Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics
+{
+	struct SPlayerController_eventGetMousePositionOnSurface_Parms
+	{
+		FVector ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerController_eventGetMousePositionOnSurface_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "GetMousePositionOnSurface", nullptr, nullptr, Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::SPlayerController_eventGetMousePositionOnSurface_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::SPlayerController_eventGetMousePositionOnSurface_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execGetMousePositionOnSurface)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FVector*)Z_Param__Result=P_THIS->GetMousePositionOnSurface();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function GetMousePositionOnSurface
 
 // Begin Class ASPlayerController Function GetMousePositionOnTerrain
 struct Z_Construct_UFunction_ASPlayerController_GetMousePositionOnTerrain_Statics
@@ -222,6 +299,52 @@ DEFINE_FUNCTION(ASPlayerController::execHandle_Selection)
 }
 // End Class ASPlayerController Function Handle_Selection
 
+// Begin Class ASPlayerController Function IsPlacementModeEnabled
+struct Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics
+{
+	struct SPlayerController_eventIsPlacementModeEnabled_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((SPlayerController_eventIsPlacementModeEnabled_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SPlayerController_eventIsPlacementModeEnabled_Parms), &Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "IsPlacementModeEnabled", nullptr, nullptr, Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::SPlayerController_eventIsPlacementModeEnabled_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::SPlayerController_eventIsPlacementModeEnabled_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execIsPlacementModeEnabled)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->IsPlacementModeEnabled();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function IsPlacementModeEnabled
+
 // Begin Class ASPlayerController Function OnRep_Selected
 struct Z_Construct_UFunction_ASPlayerController_OnRep_Selected_Statics
 {
@@ -250,6 +373,64 @@ DEFINE_FUNCTION(ASPlayerController::execOnRep_Selected)
 	P_NATIVE_END;
 }
 // End Class ASPlayerController Function OnRep_Selected
+
+// Begin Class ASPlayerController Function Place
+struct Z_Construct_UFunction_ASPlayerController_Place_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_Place_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "Place", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_Place_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_Place_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerController_Place()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_Place_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execPlace)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Place();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function Place
+
+// Begin Class ASPlayerController Function PlaceCancel
+struct Z_Construct_UFunction_ASPlayerController_PlaceCancel_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_PlaceCancel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "PlaceCancel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_PlaceCancel_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_PlaceCancel_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerController_PlaceCancel()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_PlaceCancel_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execPlaceCancel)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->PlaceCancel();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function PlaceCancel
 
 // Begin Class ASPlayerController Function RemoveInputMapping
 struct Z_Construct_UFunction_ASPlayerController_RemoveInputMapping_Statics
@@ -380,6 +561,56 @@ DEFINE_FUNCTION(ASPlayerController::execServer_DeSelect)
 	P_NATIVE_END;
 }
 // End Class ASPlayerController Function Server_DeSelect
+
+// Begin Class ASPlayerController Function Server_Place
+struct SPlayerController_eventServer_Place_Parms
+{
+	AActor* PlacementPreviewToSpawn;
+};
+static const FName NAME_ASPlayerController_Server_Place = FName(TEXT("Server_Place"));
+void ASPlayerController::Server_Place(AActor* PlacementPreviewToSpawn)
+{
+	SPlayerController_eventServer_Place_Parms Parms;
+	Parms.PlacementPreviewToSpawn=PlacementPreviewToSpawn;
+	UFunction* Func = FindFunctionChecked(NAME_ASPlayerController_Server_Place);
+	ProcessEvent(Func,&Parms);
+}
+struct Z_Construct_UFunction_ASPlayerController_Server_Place_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlacementPreviewToSpawn;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::NewProp_PlacementPreviewToSpawn = { "PlacementPreviewToSpawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerController_eventServer_Place_Parms, PlacementPreviewToSpawn), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::NewProp_PlacementPreviewToSpawn,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "Server_Place", nullptr, nullptr, Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::PropPointers), sizeof(SPlayerController_eventServer_Place_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::Function_MetaDataParams) };
+static_assert(sizeof(SPlayerController_eventServer_Place_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerController_Server_Place()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_Server_Place_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execServer_Place)
+{
+	P_GET_OBJECT(AActor,Z_Param_PlacementPreviewToSpawn);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Server_Place_Implementation(Z_Param_PlacementPreviewToSpawn);
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function Server_Place
 
 // Begin Class ASPlayerController Function Server_Select
 struct SPlayerController_eventServer_Select_Parms
@@ -537,22 +768,139 @@ DEFINE_FUNCTION(ASPlayerController::execSetInputDefault)
 }
 // End Class ASPlayerController Function SetInputDefault
 
+// Begin Class ASPlayerController Function SetInputPlacement
+struct Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics
+{
+	struct SPlayerController_eventSetInputPlacement_Parms
+	{
+		bool Enabled;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Enabled_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_Enabled_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_Enabled;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::NewProp_Enabled_SetBit(void* Obj)
+{
+	((SPlayerController_eventSetInputPlacement_Parms*)Obj)->Enabled = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::NewProp_Enabled = { "Enabled", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SPlayerController_eventSetInputPlacement_Parms), &Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::NewProp_Enabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Enabled_MetaData), NewProp_Enabled_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::NewProp_Enabled,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "SetInputPlacement", nullptr, nullptr, Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::SPlayerController_eventSetInputPlacement_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::SPlayerController_eventSetInputPlacement_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerController_SetInputPlacement()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_SetInputPlacement_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execSetInputPlacement)
+{
+	P_GET_UBOOL(Z_Param_Enabled);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetInputPlacement(Z_Param_Enabled);
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function SetInputPlacement
+
+// Begin Class ASPlayerController Function SetPlacementPreview
+struct Z_Construct_UFunction_ASPlayerController_SetPlacementPreview_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_SetPlacementPreview_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "SetPlacementPreview", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_SetPlacementPreview_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_SetPlacementPreview_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerController_SetPlacementPreview()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_SetPlacementPreview_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execSetPlacementPreview)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetPlacementPreview();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function SetPlacementPreview
+
+// Begin Class ASPlayerController Function UpdatePlacement
+struct Z_Construct_UFunction_ASPlayerController_UpdatePlacement_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerController_UpdatePlacement_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerController, nullptr, "UpdatePlacement", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerController_UpdatePlacement_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerController_UpdatePlacement_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ASPlayerController_UpdatePlacement()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerController_UpdatePlacement_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerController::execUpdatePlacement)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->UpdatePlacement();
+	P_NATIVE_END;
+}
+// End Class ASPlayerController Function UpdatePlacement
+
 // Begin Class ASPlayerController
 void ASPlayerController::StaticRegisterNativesASPlayerController()
 {
 	UClass* Class = ASPlayerController::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "ActorSelected", &ASPlayerController::execActorSelected },
+		{ "EndPlacement", &ASPlayerController::execEndPlacement },
 		{ "GetInputActionsAsset", &ASPlayerController::execGetInputActionsAsset },
+		{ "GetMousePositionOnSurface", &ASPlayerController::execGetMousePositionOnSurface },
 		{ "GetMousePositionOnTerrain", &ASPlayerController::execGetMousePositionOnTerrain },
 		{ "Handle_Selection", &ASPlayerController::execHandle_Selection },
+		{ "IsPlacementModeEnabled", &ASPlayerController::execIsPlacementModeEnabled },
 		{ "OnRep_Selected", &ASPlayerController::execOnRep_Selected },
+		{ "Place", &ASPlayerController::execPlace },
+		{ "PlaceCancel", &ASPlayerController::execPlaceCancel },
 		{ "RemoveInputMapping", &ASPlayerController::execRemoveInputMapping },
 		{ "Server_ClearSelected", &ASPlayerController::execServer_ClearSelected },
 		{ "Server_DeSelect", &ASPlayerController::execServer_DeSelect },
+		{ "Server_Place", &ASPlayerController::execServer_Place },
 		{ "Server_Select", &ASPlayerController::execServer_Select },
 		{ "Server_Select_Group", &ASPlayerController::execServer_Select_Group },
 		{ "SetInputDefault", &ASPlayerController::execSetInputDefault },
+		{ "SetInputPlacement", &ASPlayerController::execSetInputPlacement },
+		{ "SetPlacementPreview", &ASPlayerController::execSetPlacementPreview },
+		{ "UpdatePlacement", &ASPlayerController::execUpdatePlacement },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -583,25 +931,48 @@ struct Z_Construct_UClass_ASPlayerController_Statics
 		{ "Category", "Player Settings" },
 		{ "ModuleRelativePath", "Public/SPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bPlacementModeEnabled_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlacementPreviewActor_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PreviewActorType_MetaData[] = {
+		{ "Category", "Settings|Placeable" },
+		{ "ModuleRelativePath", "Public/SPlayerController.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Selected_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Selected;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnSelectedUpdated;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerActionsAsset;
+	static void NewProp_bPlacementModeEnabled_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bPlacementModeEnabled;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlacementPreviewActor;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_PreviewActorType;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASPlayerController_ActorSelected, "ActorSelected" }, // 2221510552
+		{ &Z_Construct_UFunction_ASPlayerController_EndPlacement, "EndPlacement" }, // 3247569765
 		{ &Z_Construct_UFunction_ASPlayerController_GetInputActionsAsset, "GetInputActionsAsset" }, // 3616479880
+		{ &Z_Construct_UFunction_ASPlayerController_GetMousePositionOnSurface, "GetMousePositionOnSurface" }, // 2448914906
 		{ &Z_Construct_UFunction_ASPlayerController_GetMousePositionOnTerrain, "GetMousePositionOnTerrain" }, // 3709734971
 		{ &Z_Construct_UFunction_ASPlayerController_Handle_Selection, "Handle_Selection" }, // 140923160
+		{ &Z_Construct_UFunction_ASPlayerController_IsPlacementModeEnabled, "IsPlacementModeEnabled" }, // 827456844
 		{ &Z_Construct_UFunction_ASPlayerController_OnRep_Selected, "OnRep_Selected" }, // 1134188566
+		{ &Z_Construct_UFunction_ASPlayerController_Place, "Place" }, // 1683450717
+		{ &Z_Construct_UFunction_ASPlayerController_PlaceCancel, "PlaceCancel" }, // 189087687
 		{ &Z_Construct_UFunction_ASPlayerController_RemoveInputMapping, "RemoveInputMapping" }, // 2781948446
 		{ &Z_Construct_UFunction_ASPlayerController_Server_ClearSelected, "Server_ClearSelected" }, // 1630769326
 		{ &Z_Construct_UFunction_ASPlayerController_Server_DeSelect, "Server_DeSelect" }, // 2094628059
+		{ &Z_Construct_UFunction_ASPlayerController_Server_Place, "Server_Place" }, // 3539453701
 		{ &Z_Construct_UFunction_ASPlayerController_Server_Select, "Server_Select" }, // 56605078
 		{ &Z_Construct_UFunction_ASPlayerController_Server_Select_Group, "Server_Select_Group" }, // 3283564284
 		{ &Z_Construct_UFunction_ASPlayerController_SetInputDefault, "SetInputDefault" }, // 414828233
+		{ &Z_Construct_UFunction_ASPlayerController_SetInputPlacement, "SetInputPlacement" }, // 3613819052
+		{ &Z_Construct_UFunction_ASPlayerController_SetPlacementPreview, "SetPlacementPreview" }, // 4179145869
+		{ &Z_Construct_UFunction_ASPlayerController_UpdatePlacement, "UpdatePlacement" }, // 2581784684
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -613,11 +984,21 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerContro
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_Selected = { "Selected", "OnRep_Selected", (EPropertyFlags)0x0020080100000020, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerController, Selected), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Selected_MetaData), NewProp_Selected_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_OnSelectedUpdated = { "OnSelectedUpdated", nullptr, (EPropertyFlags)0x0020080000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerController, OnSelectedUpdated), Z_Construct_UDelegateFunction_RtsProject_SelectedUpdateDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnSelectedUpdated_MetaData), NewProp_OnSelectedUpdated_MetaData) }; // 1813153521
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_PlayerActionsAsset = { "PlayerActionsAsset", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerController, PlayerActionsAsset), Z_Construct_UClass_UDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerActionsAsset_MetaData), NewProp_PlayerActionsAsset_MetaData) };
+void Z_Construct_UClass_ASPlayerController_Statics::NewProp_bPlacementModeEnabled_SetBit(void* Obj)
+{
+	((ASPlayerController*)Obj)->bPlacementModeEnabled = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_bPlacementModeEnabled = { "bPlacementModeEnabled", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASPlayerController), &Z_Construct_UClass_ASPlayerController_Statics::NewProp_bPlacementModeEnabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bPlacementModeEnabled_MetaData), NewProp_bPlacementModeEnabled_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_PlacementPreviewActor = { "PlacementPreviewActor", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerController, PlacementPreviewActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlacementPreviewActor_MetaData), NewProp_PlacementPreviewActor_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASPlayerController_Statics::NewProp_PreviewActorType = { "PreviewActorType", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASPlayerController, PreviewActorType), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PreviewActorType_MetaData), NewProp_PreviewActorType_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_Selected_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_Selected,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_OnSelectedUpdated,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_PlayerActionsAsset,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_bPlacementModeEnabled,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_PlacementPreviewActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASPlayerController_Statics::NewProp_PreviewActorType,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ASPlayerController_Statics::DependentSingletons[])() = {
@@ -667,10 +1048,10 @@ ASPlayerController::~ASPlayerController() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerController, ASPlayerController::StaticClass, TEXT("ASPlayerController"), &Z_Registration_Info_UClass_ASPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerController), 3004867370U) },
+		{ Z_Construct_UClass_ASPlayerController, ASPlayerController::StaticClass, TEXT("ASPlayerController"), &Z_Registration_Info_UClass_ASPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerController), 3814936218U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_1155643739(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_3357537837(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

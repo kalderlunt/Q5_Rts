@@ -22,11 +22,21 @@ RTSPROJECT_API void FSelectedUpdateDelegate_DelegateWrapper(const FMulticastScri
 
 
 #define FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerController_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void EndPlacement_Implementation(); \
+	virtual void Server_Place_Implementation(AActor* PlacementPreviewToSpawn); \
 	virtual void Server_ClearSelected_Implementation(); \
 	virtual void Server_DeSelect_Implementation(AActor* ActorToDeSelect); \
 	virtual void Server_Select_Group_Implementation(TArray<AActor*> const& ActorsToSelect); \
 	virtual void Server_Select_Implementation(AActor* ActorToSelect); \
+	DECLARE_FUNCTION(execEndPlacement); \
+	DECLARE_FUNCTION(execServer_Place); \
+	DECLARE_FUNCTION(execUpdatePlacement); \
+	DECLARE_FUNCTION(execPlaceCancel); \
+	DECLARE_FUNCTION(execPlace); \
+	DECLARE_FUNCTION(execSetPlacementPreview); \
+	DECLARE_FUNCTION(execIsPlacementModeEnabled); \
 	DECLARE_FUNCTION(execGetInputActionsAsset); \
+	DECLARE_FUNCTION(execSetInputPlacement); \
 	DECLARE_FUNCTION(execSetInputDefault); \
 	DECLARE_FUNCTION(execRemoveInputMapping); \
 	DECLARE_FUNCTION(execOnRep_Selected); \
@@ -35,6 +45,7 @@ RTSPROJECT_API void FSelectedUpdateDelegate_DelegateWrapper(const FMulticastScri
 	DECLARE_FUNCTION(execServer_Select_Group); \
 	DECLARE_FUNCTION(execServer_Select); \
 	DECLARE_FUNCTION(execActorSelected); \
+	DECLARE_FUNCTION(execGetMousePositionOnSurface); \
 	DECLARE_FUNCTION(execGetMousePositionOnTerrain); \
 	DECLARE_FUNCTION(execHandle_Selection);
 
