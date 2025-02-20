@@ -45,6 +45,20 @@ void ASPlayerController::Handle_Selection(TArray<AActor*> ActorToSelect)
 	Server_Select_Group(ActorToSelect);
 }
 
+void ASPlayerController::Handle_DeSelection(AActor* ActorToSelect)
+{
+	if (ActorToSelect && ActorSelected(ActorToSelect))
+	{
+		Server_DeSelect(ActorToSelect);
+	}
+}
+
+void ASPlayerController::Handle_DeSelection(TArray<AActor*> ActorsToSelect)
+{
+	Server_DeSelect_Group(ActorsToSelect);
+}
+
+
 FVector ASPlayerController::GetMousePositionOnTerrain() const
 {
 	FVector WorldLocation;
@@ -178,6 +192,30 @@ void ASPlayerController::Server_ClearSelected_Implementation()
 	OnRep_Selected();
 }
 
+void ASPlayerController::Server_DeSelect_Group_Implementation(const TArray<AActor*>& ActorsToDeSelect)
+{
+	for (int i = 0; i < ActorsToDeSelect.Num(); ++i)
+	{
+		if (ActorsToDeSelect[i])
+		{
+			for (int j = Selected.Num() - 1; j >= 0; --j)
+			{
+				if (ActorsToDeSelect[i] == Selected[j])
+				{
+					if (ISelectable* Selectable = Cast<ISelectable>(ActorsToDeSelect[i]))
+					{
+						Selectable->DeSelect();
+						Selected.RemoveAt(j);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	OnRep_Selected();
+}
+
 void ASPlayerController::OnRep_Selected()
 {
 	OnSelectedUpdated.Broadcast();
@@ -242,6 +280,63 @@ void ASPlayerController::SetInputPlacement(const bool Enabled) const
 		{
 			RemoveInputMapping(PlayerActions->MappingContextPlacement);
 			SetInputDefault();
+		}
+	}
+}
+
+void ASPlayerController::SetInputShift(const bool Enabled) const
+{
+	ensureMsgf(PlayerActionsAsset, TEXT("PlayerActionsAsset is NULL!"));
+
+	if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerActionsAsset))
+	{
+		ensure(PlayerActions->MappingContextShift);
+
+		if (Enabled)
+		{
+			AddInputMapping(PlayerActions->MappingContextShift, PlayerActions->MapPriorityShift);
+		}
+		else
+		{
+			RemoveInputMapping(PlayerActions->MappingContextShift);
+		}
+	}
+}
+
+void ASPlayerController::SetInputAlt(const bool Enabled) const
+{
+	ensureMsgf(PlayerActionsAsset, TEXT("PlayerActionsAsset is NULL!"));
+
+	if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerActionsAsset))
+	{
+		ensure(PlayerActions->MappingContextAlt);
+
+		if (Enabled)
+		{
+			AddInputMapping(PlayerActions->MappingContextAlt, PlayerActions->MapPriorityAlt);
+		}
+		else
+		{
+			RemoveInputMapping(PlayerActions->MappingContextAlt);
+		}
+	}
+}
+
+void ASPlayerController::SetInputCtrl(const bool Enabled) const
+{
+	ensureMsgf(PlayerActionsAsset, TEXT("PlayerActionsAsset is NULL!"));
+
+	if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerActionsAsset))
+	{
+		ensure(PlayerActions->MappingContextCtrl);
+
+		if (Enabled)
+		{
+			AddInputMapping(PlayerActions->MappingContextCtrl, PlayerActions->MapPriorityCtrl);
+		}
+		else
+		{
+			RemoveInputMapping(PlayerActions->MappingContextCtrl);
 		}
 	}
 }

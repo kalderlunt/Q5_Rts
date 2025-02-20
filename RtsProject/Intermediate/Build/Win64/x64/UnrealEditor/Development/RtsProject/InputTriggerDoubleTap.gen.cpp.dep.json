@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsproject\\uht\\inputtriggerdoubletap.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\x64\\rtsprojecteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\rtsproject\\definitions.rtsproject.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\source\\rtsproject\\public\\input\\inputtriggerdoubletap.h",
+            "d:\\unreal\\ue_5.5\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputtriggers.h",
+            "d:\\unreal\\ue_5.5\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
+            "d:\\unreal\\ue_5.5\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputactionvalue.generated.h",
+            "d:\\unreal\\ue_5.5\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputtriggers.generated.h",
+            "d:\\onedrive - la horde\\b2\\quetes\\q5_rts\\q5_rts\\rtsproject\\intermediate\\build\\win64\\unrealeditor\\inc\\rtsproject\\uht\\inputtriggerdoubletap.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

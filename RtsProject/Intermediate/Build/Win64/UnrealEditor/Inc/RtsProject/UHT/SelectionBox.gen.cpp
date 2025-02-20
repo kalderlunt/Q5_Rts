@@ -57,14 +57,46 @@ DEFINE_FUNCTION(ASelectionBox::execAdjust)
 // Begin Class ASelectionBox Function End
 struct Z_Construct_UFunction_ASelectionBox_End_Statics
 {
+	struct SelectionBox_eventEnd_Parms
+	{
+		bool bSelect;
+		bool bAddOnly;
+	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/SelectionBox.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bSelect_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bAddOnly_MetaData[] = {
+		{ "NativeConst", "" },
+	};
 #endif // WITH_METADATA
+	static void NewProp_bSelect_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bSelect;
+	static void NewProp_bAddOnly_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bAddOnly;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASelectionBox_End_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASelectionBox, nullptr, "End", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASelectionBox_End_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASelectionBox_End_Statics::Function_MetaDataParams) };
+void Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bSelect_SetBit(void* Obj)
+{
+	((SelectionBox_eventEnd_Parms*)Obj)->bSelect = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bSelect = { "bSelect", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SelectionBox_eventEnd_Parms), &Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bSelect_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bSelect_MetaData), NewProp_bSelect_MetaData) };
+void Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bAddOnly_SetBit(void* Obj)
+{
+	((SelectionBox_eventEnd_Parms*)Obj)->bAddOnly = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bAddOnly = { "bAddOnly", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(SelectionBox_eventEnd_Parms), &Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bAddOnly_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bAddOnly_MetaData), NewProp_bAddOnly_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASelectionBox_End_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bSelect,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASelectionBox_End_Statics::NewProp_bAddOnly,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASelectionBox_End_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASelectionBox_End_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASelectionBox, nullptr, "End", nullptr, nullptr, Z_Construct_UFunction_ASelectionBox_End_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASelectionBox_End_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASelectionBox_End_Statics::SelectionBox_eventEnd_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASelectionBox_End_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASelectionBox_End_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASelectionBox_End_Statics::SelectionBox_eventEnd_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_ASelectionBox_End()
 {
 	static UFunction* ReturnFunction = nullptr;
@@ -76,9 +108,11 @@ UFunction* Z_Construct_UFunction_ASelectionBox_End()
 }
 DEFINE_FUNCTION(ASelectionBox::execEnd)
 {
+	P_GET_UBOOL(Z_Param_bSelect);
+	P_GET_UBOOL(Z_Param_bAddOnly);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->End();
+	P_THIS->End(Z_Param_bSelect,Z_Param_bAddOnly);
 	P_NATIVE_END;
 }
 // End Class ASelectionBox Function End
@@ -370,7 +404,7 @@ struct Z_Construct_UClass_ASelectionBox_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASelectionBox_Adjust, "Adjust" }, // 2921504625
-		{ &Z_Construct_UFunction_ASelectionBox_End, "End" }, // 930642308
+		{ &Z_Construct_UFunction_ASelectionBox_End, "End" }, // 4294601352
 		{ &Z_Construct_UFunction_ASelectionBox_HandleHighlight, "HandleHighlight" }, // 830780650
 		{ &Z_Construct_UFunction_ASelectionBox_Manage, "Manage" }, // 2837326669
 		{ &Z_Construct_UFunction_ASelectionBox_OnBoxColliderBeginOverlap, "OnBoxColliderBeginOverlap" }, // 473474235
@@ -449,10 +483,10 @@ ASelectionBox::~ASelectionBox() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SelectionBox_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASelectionBox, ASelectionBox::StaticClass, TEXT("ASelectionBox"), &Z_Registration_Info_UClass_ASelectionBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASelectionBox), 1717511313U) },
+		{ Z_Construct_UClass_ASelectionBox, ASelectionBox::StaticClass, TEXT("ASelectionBox"), &Z_Registration_Info_UClass_ASelectionBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASelectionBox), 3527950991U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SelectionBox_h_1710838692(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SelectionBox_h_1868719229(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SelectionBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SelectionBox_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

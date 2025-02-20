@@ -13,50 +13,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e980a9c1-6508-4c15-93c3-03bd952e11d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/RtsProject/Private/PlacementPreview.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RtsProject/Public/PlacementPreview.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RtsProject/Private/Input/InputTriggerDoubleTap.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/RtsProject/Public/Input/InputTriggerDoubleTap.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RtsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RtsProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-RtsProject.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-RtsProject.exp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-RtsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-RtsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_FreeLook.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_Look.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_Move.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_Rotate.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_Select.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/IA_Zoom.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/Default/AI_TestPlacement.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/Placement/AI_Place.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Actions/Placement/AI_PlaceCancel.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Input/Contexts/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Contexts/IMC_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Input/Contexts/IMC_Placement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Contexts/IMC_Placement.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Input/Data/DA_DefaultPlayerInput.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/Data/DA_DefaultPlayerInput.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/Development/RtsProjectModuleRules.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/BuildRulesProjects/RtsProjectModuleRules/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/ActionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/RtsProjectEditor/Development/RtsProjectEditor.uhtmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/RtsProjectEditor/Development/RtsProjectEditor.uhtmanifest" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/PlayerInputActions.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/PlayerInputActions.gen.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/RtsProject.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/RtsProject.init.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerController.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerController.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerController.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerController.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerPawn.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerPawn.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerPawn.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SPlayerPawn.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SelectionBox.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/SelectionBox.gen.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/Timestamp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/RtsProject/UHT/Timestamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/RtsProjectEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/RtsProjectEditor/Development/DependencyCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/RtsProjectEditor/Development/Makefile.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/RtsProjectEditor/Development/Makefile.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/ActionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/SPlayerPawn.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/SPlayerPawn.cpp.dep.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.dll.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.dll.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.dll.rsp.old" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.dll.rsp.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.exp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.lib.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.lib.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.lib.rsp.old" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/RtsProject/UnrealEditor-RtsProject.lib.rsp.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Win64/Development/Editor/RtsProject.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Win64/Development/Editor/RtsProject.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/ProjectFiles/RtsProject.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/ProjectFiles/RtsProject.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/ProjectFiles/RtsProject.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/ProjectFiles/RtsProject.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RtsProject.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/RtsProject.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/AutoScreenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/AutoScreenshot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/PackageRestoreData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/PackageRestoreData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-0925B6504FC290DE9C76BF92F6DBA3D6/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-0EB61C3B40CF690A2AF0FE9C1144F4C5/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-0F9682D14AF336A142CD91BCA0EFA06D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-3D68B833491A8F30CD4124A872C515C5/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-41D8A5354A50E104353473992A06FF5D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-5409E24A4B4D6E062501A48B3B12E408/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-54264A1C4BE166DE4E7DA1B6D199868C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-552DA0894712873577A212AA07F9F5DB/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-56BCCDC04089C623A2112B912F0C649D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-5A04606F4F408911199AE2AE45027864/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-728D3A4B461D17173C2CAA870BAA0BE5/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-76B0BB2048B03BE735538CA8AE7EFF69/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-7B9DCF674AD78A54C6B8AFA3E8DEA10E/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-7CD9D1A8490D04DB1B6F92BBF6684E46/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-7E51CA7D46B76C950DADE69703BC5B8C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-83B28B0548184AB283C9EFB0E0C3B83C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-89CEB59243675C72D3AB2EA5A7AB7034/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-BBEFCC0E461CD72267CA258BC216539C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-DB94D3A64BCD049CF74C6C8B1BA26B61/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-DEC0B8704CB4E5AF73E4949F3B61CE92/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-E5B876DA4877AEAF91F08CA1D730F105/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-F3C1101C44CBC174445F7AB8C4DF917F/CrashReportClient.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-15.46.23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-15.49.11.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-16.05.48.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-16.47.47.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-17.07.35.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-17.14.08.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-17.28.31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-17.29.15.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject-backup-2025.01.24-17.34.34.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/RtsProject.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/RtsProject.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RtsProject/Private/SPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Private/SPlayerController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RtsProject/Private/SPlayerPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Private/SPlayerPawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RtsProject/Private/SelectionBox.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Private/SelectionBox.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RtsProject/Public/Input/PlayerInputActions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Public/Input/PlayerInputActions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RtsProject/Public/SPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Public/SPlayerController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RtsProject/Public/SPlayerPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Public/SPlayerPawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RtsProject/Public/SelectionBox.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RtsProject/Public/SelectionBox.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +103,29 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/CookOnTheFlyNetServer/CookOnTheFlyNetServer.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/DesktopPlatform/DesktopPlatform.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/MassEntityTestSuite/MassEntityTestSuite.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/Merge/Merge.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/ProfilerService/ProfilerService.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Developer/TraceAnalysis/TraceAnalysis.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/Kismet/Private/BlueprintCompilationManager.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/Kismet/Private/BlueprintEditor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/Kismet/Public/MyBlueprintItemDragDropAction.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/Persona/Private/SAnimNotifyPanel.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/UnrealEd/Classes/Settings/LevelEditorPlaySettings.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/UnrealEd/Private/Cooker/CookWorkerServer.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/UnrealEd/Private/PlayLevel.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/UnrealEd/Private/Tools/EditorComponentSourceFactory.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Editor/UnrealEd/Public/Kismet2/CompilerResultsLog.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Runtime/Engine/Engine.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/Runtime/Interchange/Engine/Private/InterchangeManager.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/ThirdParty/EOSSDK/EOSSDK.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/ThirdParty/libJPG/jpgd.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Unreal/UE_5.5/Engine/Source/ThirdParty/libJPG/jpge.cpp" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -209,7 +259,9 @@
       <updated>1737470953585</updated>
       <workItem from="1737470956641" duration="2734000" />
       <workItem from="1739784727913" duration="1443000" />
-      <workItem from="1739786504785" duration="7220000" />
+      <workItem from="1739786504785" duration="16650000" />
+      <workItem from="1739890141727" duration="191000" />
+      <workItem from="1739890548948" duration="9982000" />
     </task>
     <servers />
   </component>

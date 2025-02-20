@@ -134,6 +134,21 @@ protected:
 
 	UFUNCTION()
 	void TestPlacement(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void SelectDoubleTap(const FInputActionValue& Value);
+	
+
+	/** Modifier Keys **/
+	UFUNCTION()
+	void Shift(const FInputActionValue& Value);
+	
+	UFUNCTION()
+	void Alt(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void Ctrl (const FInputActionValue& Value);
+
 	
 	/** Placement **/
 	UFUNCTION()
@@ -141,4 +156,22 @@ protected:
 
 	UFUNCTION()
 	void PlaceCancel(const FInputActionValue& Value);
+
+	/** Shift **/
+	UFUNCTION()
+	void ShiftSelect(const FInputActionValue& Value);
+	
+	/** Alt **/
+	UFUNCTION()
+	void AltSelect(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void AltSelectEnd(const FInputActionValue& Value);
+	
+	/** Ctrl **/
+	UFUNCTION()
+	void CtrlSelect(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void CtrlSelectEnd(const FInputActionValue& Value);
 };

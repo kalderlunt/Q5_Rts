@@ -26,6 +26,10 @@ public:
 	void Handle_Selection(TArray<AActor*> ActorsToSelect);
 
 	UFUNCTION()
+	void Handle_DeSelection(AActor* ActorToSelect);
+	void Handle_DeSelection(TArray<AActor*> ActorsToSelect);
+
+	UFUNCTION()
 	FVector GetMousePositionOnTerrain() const;
 	
 	UFUNCTION()
@@ -47,6 +51,9 @@ protected:
 	
 	UFUNCTION(Server, Reliable)
 	void Server_DeSelect(AActor* ActorToDeSelect);
+	
+	UFUNCTION(Server, Reliable)
+	void Server_DeSelect_Group(const TArray<AActor*>& ActorsToDeSelect);
 
 	UFUNCTION(Server, Reliable)
 	void Server_ClearSelected();
@@ -73,6 +80,15 @@ public:
 
 	UFUNCTION()
 	void SetInputPlacement(const bool Enabled = true) const;
+
+	UFUNCTION()
+	void SetInputShift(const bool Enabled = true) const;
+
+	UFUNCTION()
+	void SetInputAlt(const bool Enabled = true) const;
+
+	UFUNCTION()
+	void SetInputCtrl(const bool Enabled = true) const;
 
 	UFUNCTION()
 	UDataAsset* GetInputActionsAsset() const { return PlayerActionsAsset; }
@@ -116,6 +132,4 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settings|Placeable")
 	TSubclassOf<AActor> PreviewActorType;
-
-	
 };

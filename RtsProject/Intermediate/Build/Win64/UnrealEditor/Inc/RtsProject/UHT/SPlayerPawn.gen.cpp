@@ -26,6 +26,147 @@ RTSPROJECT_API UClass* Z_Construct_UClass_ASPlayerPawn_NoRegister();
 UPackage* Z_Construct_UPackage__Script_RtsProject();
 // End Cross Module References
 
+// Begin Class ASPlayerPawn Function Alt
+struct Z_Construct_UFunction_ASPlayerPawn_Alt_Statics
+{
+	struct SPlayerPawn_eventAlt_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventAlt_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "Alt", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::SPlayerPawn_eventAlt_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::SPlayerPawn_eventAlt_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_Alt()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_Alt_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execAlt)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Alt(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function Alt
+
+// Begin Class ASPlayerPawn Function AltSelect
+struct Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics
+{
+	struct SPlayerPawn_eventAltSelect_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Alt **/" },
+#endif
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Alt *" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventAltSelect_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "AltSelect", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::SPlayerPawn_eventAltSelect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::SPlayerPawn_eventAltSelect_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_AltSelect()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_AltSelect_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execAltSelect)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->AltSelect(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function AltSelect
+
+// Begin Class ASPlayerPawn Function AltSelectEnd
+struct Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics
+{
+	struct SPlayerPawn_eventAltSelectEnd_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventAltSelectEnd_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "AltSelectEnd", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::SPlayerPawn_eventAltSelectEnd_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::SPlayerPawn_eventAltSelectEnd_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execAltSelectEnd)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->AltSelectEnd(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function AltSelectEnd
+
 // Begin Class ASPlayerPawn Function CameraBounds
 struct Z_Construct_UFunction_ASPlayerPawn_CameraBounds_Statics
 {
@@ -83,6 +224,147 @@ DEFINE_FUNCTION(ASPlayerPawn::execCreateSelectionBox)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function CreateSelectionBox
+
+// Begin Class ASPlayerPawn Function Ctrl
+struct Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics
+{
+	struct SPlayerPawn_eventCtrl_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventCtrl_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "Ctrl", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::SPlayerPawn_eventCtrl_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::SPlayerPawn_eventCtrl_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_Ctrl()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_Ctrl_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execCtrl)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Ctrl(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function Ctrl
+
+// Begin Class ASPlayerPawn Function CtrlSelect
+struct Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics
+{
+	struct SPlayerPawn_eventCtrlSelect_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Ctrl **/" },
+#endif
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Ctrl *" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventCtrlSelect_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "CtrlSelect", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::SPlayerPawn_eventCtrlSelect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::SPlayerPawn_eventCtrlSelect_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_CtrlSelect()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_CtrlSelect_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execCtrlSelect)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CtrlSelect(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function CtrlSelect
+
+// Begin Class ASPlayerPawn Function CtrlSelectEnd
+struct Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics
+{
+	struct SPlayerPawn_eventCtrlSelectEnd_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventCtrlSelectEnd_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "CtrlSelectEnd", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::SPlayerPawn_eventCtrlSelectEnd_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::SPlayerPawn_eventCtrlSelectEnd_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execCtrlSelectEnd)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CtrlSelectEnd(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function CtrlSelectEnd
 
 // Begin Class ASPlayerPawn Function EdgeScroll
 struct Z_Construct_UFunction_ASPlayerPawn_EdgeScroll_Statics
@@ -478,6 +760,51 @@ DEFINE_FUNCTION(ASPlayerPawn::execSelect)
 }
 // End Class ASPlayerPawn Function Select
 
+// Begin Class ASPlayerPawn Function SelectDoubleTap
+struct Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics
+{
+	struct SPlayerPawn_eventSelectDoubleTap_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventSelectDoubleTap_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "SelectDoubleTap", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::SPlayerPawn_eventSelectDoubleTap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::SPlayerPawn_eventSelectDoubleTap_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execSelectDoubleTap)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SelectDoubleTap(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function SelectDoubleTap
+
 // Begin Class ASPlayerPawn Function SelectEnd
 struct Z_Construct_UFunction_ASPlayerPawn_SelectEnd_Statics
 {
@@ -567,6 +894,108 @@ DEFINE_FUNCTION(ASPlayerPawn::execSelectHold)
 	P_NATIVE_END;
 }
 // End Class ASPlayerPawn Function SelectHold
+
+// Begin Class ASPlayerPawn Function Shift
+struct Z_Construct_UFunction_ASPlayerPawn_Shift_Statics
+{
+	struct SPlayerPawn_eventShift_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Modifier Keys **/" },
+#endif
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Modifier Keys *" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventShift_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "Shift", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::SPlayerPawn_eventShift_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::SPlayerPawn_eventShift_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_Shift()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_Shift_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execShift)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->Shift(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function Shift
+
+// Begin Class ASPlayerPawn Function ShiftSelect
+struct Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics
+{
+	struct SPlayerPawn_eventShiftSelect_Parms
+	{
+		FInputActionValue Value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Shift **/" },
+#endif
+		{ "ModuleRelativePath", "Public/SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Shift *" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SPlayerPawn_eventShiftSelect_Parms, Value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::NewProp_Value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASPlayerPawn, nullptr, "ShiftSelect", nullptr, nullptr, Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::SPlayerPawn_eventShiftSelect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::SPlayerPawn_eventShiftSelect_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASPlayerPawn_ShiftSelect()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASPlayerPawn_ShiftSelect_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASPlayerPawn::execShiftSelect)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_Value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ShiftSelect(Z_Param_Out_Value);
+	P_NATIVE_END;
+}
+// End Class ASPlayerPawn Function ShiftSelect
 
 // Begin Class ASPlayerPawn Function TestPlacement
 struct Z_Construct_UFunction_ASPlayerPawn_TestPlacement_Statics
@@ -663,8 +1092,14 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 {
 	UClass* Class = ASPlayerPawn::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "Alt", &ASPlayerPawn::execAlt },
+		{ "AltSelect", &ASPlayerPawn::execAltSelect },
+		{ "AltSelectEnd", &ASPlayerPawn::execAltSelectEnd },
 		{ "CameraBounds", &ASPlayerPawn::execCameraBounds },
 		{ "CreateSelectionBox", &ASPlayerPawn::execCreateSelectionBox },
+		{ "Ctrl", &ASPlayerPawn::execCtrl },
+		{ "CtrlSelect", &ASPlayerPawn::execCtrlSelect },
+		{ "CtrlSelectEnd", &ASPlayerPawn::execCtrlSelectEnd },
 		{ "EdgeScroll", &ASPlayerPawn::execEdgeScroll },
 		{ "GetSelectedObject", &ASPlayerPawn::execGetSelectedObject },
 		{ "GetTerrainPosition", &ASPlayerPawn::execGetTerrainPosition },
@@ -674,8 +1109,11 @@ void ASPlayerPawn::StaticRegisterNativesASPlayerPawn()
 		{ "PlaceCancel", &ASPlayerPawn::execPlaceCancel },
 		{ "Rotate", &ASPlayerPawn::execRotate },
 		{ "Select", &ASPlayerPawn::execSelect },
+		{ "SelectDoubleTap", &ASPlayerPawn::execSelectDoubleTap },
 		{ "SelectEnd", &ASPlayerPawn::execSelectEnd },
 		{ "SelectHold", &ASPlayerPawn::execSelectHold },
+		{ "Shift", &ASPlayerPawn::execShift },
+		{ "ShiftSelect", &ASPlayerPawn::execShiftSelect },
 		{ "TestPlacement", &ASPlayerPawn::execTestPlacement },
 		{ "Zoom", &ASPlayerPawn::execZoom },
 	};
@@ -798,8 +1236,14 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASPlayerPawn_Alt, "Alt" }, // 140334410
+		{ &Z_Construct_UFunction_ASPlayerPawn_AltSelect, "AltSelect" }, // 1624371160
+		{ &Z_Construct_UFunction_ASPlayerPawn_AltSelectEnd, "AltSelectEnd" }, // 1923029058
 		{ &Z_Construct_UFunction_ASPlayerPawn_CameraBounds, "CameraBounds" }, // 4047234879
 		{ &Z_Construct_UFunction_ASPlayerPawn_CreateSelectionBox, "CreateSelectionBox" }, // 372051341
+		{ &Z_Construct_UFunction_ASPlayerPawn_Ctrl, "Ctrl" }, // 3408189108
+		{ &Z_Construct_UFunction_ASPlayerPawn_CtrlSelect, "CtrlSelect" }, // 2029219467
+		{ &Z_Construct_UFunction_ASPlayerPawn_CtrlSelectEnd, "CtrlSelectEnd" }, // 821233119
 		{ &Z_Construct_UFunction_ASPlayerPawn_EdgeScroll, "EdgeScroll" }, // 313748433
 		{ &Z_Construct_UFunction_ASPlayerPawn_GetSelectedObject, "GetSelectedObject" }, // 584511560
 		{ &Z_Construct_UFunction_ASPlayerPawn_GetTerrainPosition, "GetTerrainPosition" }, // 3567289929
@@ -809,8 +1253,11 @@ struct Z_Construct_UClass_ASPlayerPawn_Statics
 		{ &Z_Construct_UFunction_ASPlayerPawn_PlaceCancel, "PlaceCancel" }, // 3319807236
 		{ &Z_Construct_UFunction_ASPlayerPawn_Rotate, "Rotate" }, // 1360787432
 		{ &Z_Construct_UFunction_ASPlayerPawn_Select, "Select" }, // 416665506
+		{ &Z_Construct_UFunction_ASPlayerPawn_SelectDoubleTap, "SelectDoubleTap" }, // 1879033930
 		{ &Z_Construct_UFunction_ASPlayerPawn_SelectEnd, "SelectEnd" }, // 23355840
 		{ &Z_Construct_UFunction_ASPlayerPawn_SelectHold, "SelectHold" }, // 3750890487
+		{ &Z_Construct_UFunction_ASPlayerPawn_Shift, "Shift" }, // 495332692
+		{ &Z_Construct_UFunction_ASPlayerPawn_ShiftSelect, "ShiftSelect" }, // 3864355165
 		{ &Z_Construct_UFunction_ASPlayerPawn_TestPlacement, "TestPlacement" }, // 2060531660
 		{ &Z_Construct_UFunction_ASPlayerPawn_Zoom, "Zoom" }, // 3021649989
 	};
@@ -907,10 +1354,10 @@ ASPlayerPawn::~ASPlayerPawn() {}
 struct Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2512264407U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 2717699545U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_3529066283(TEXT("/Script/RtsProject"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_1617675032(TEXT("/Script/RtsProject"),
 	Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_OneDrive___La_Horde_B2_Quetes_Q5_Rts_Q5_Rts_RtsProject_Source_RtsProject_Public_SPlayerPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

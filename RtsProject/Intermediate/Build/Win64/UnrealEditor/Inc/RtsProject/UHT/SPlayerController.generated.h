@@ -25,6 +25,7 @@ RTSPROJECT_API void FSelectedUpdateDelegate_DelegateWrapper(const FMulticastScri
 	virtual void EndPlacement_Implementation(); \
 	virtual void Server_Place_Implementation(AActor* PlacementPreviewToSpawn); \
 	virtual void Server_ClearSelected_Implementation(); \
+	virtual void Server_DeSelect_Group_Implementation(TArray<AActor*> const& ActorsToDeSelect); \
 	virtual void Server_DeSelect_Implementation(AActor* ActorToDeSelect); \
 	virtual void Server_Select_Group_Implementation(TArray<AActor*> const& ActorsToSelect); \
 	virtual void Server_Select_Implementation(AActor* ActorToSelect); \
@@ -36,17 +37,22 @@ RTSPROJECT_API void FSelectedUpdateDelegate_DelegateWrapper(const FMulticastScri
 	DECLARE_FUNCTION(execSetPlacementPreview); \
 	DECLARE_FUNCTION(execIsPlacementModeEnabled); \
 	DECLARE_FUNCTION(execGetInputActionsAsset); \
+	DECLARE_FUNCTION(execSetInputCtrl); \
+	DECLARE_FUNCTION(execSetInputAlt); \
+	DECLARE_FUNCTION(execSetInputShift); \
 	DECLARE_FUNCTION(execSetInputPlacement); \
 	DECLARE_FUNCTION(execSetInputDefault); \
 	DECLARE_FUNCTION(execRemoveInputMapping); \
 	DECLARE_FUNCTION(execOnRep_Selected); \
 	DECLARE_FUNCTION(execServer_ClearSelected); \
+	DECLARE_FUNCTION(execServer_DeSelect_Group); \
 	DECLARE_FUNCTION(execServer_DeSelect); \
 	DECLARE_FUNCTION(execServer_Select_Group); \
 	DECLARE_FUNCTION(execServer_Select); \
 	DECLARE_FUNCTION(execActorSelected); \
 	DECLARE_FUNCTION(execGetMousePositionOnSurface); \
 	DECLARE_FUNCTION(execGetMousePositionOnTerrain); \
+	DECLARE_FUNCTION(execHandle_DeSelection); \
 	DECLARE_FUNCTION(execHandle_Selection);
 
 

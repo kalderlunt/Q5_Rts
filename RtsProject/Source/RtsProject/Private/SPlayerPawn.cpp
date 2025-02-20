@@ -3,7 +3,9 @@
 
 #include "SPlayerPawn.h"
 
+#include "EngineUtils.h"
 #include "EnhancedInputComponent.h"
+#include "RtsProjectCharacter.h"
 #include "SelectionBox.h"
 #include "SPlayerController.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
@@ -94,17 +96,30 @@ void ASPlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	{
 		if (const UPlayerInputActions* PlayerActions = Cast<UPlayerInputActions>(PlayerController->GetInputActionsAsset()))
 		{
-			/** Default */
+			/** Default **/
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Move, this, &ASPlayerPawn::Move);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Look, this, &ASPlayerPawn::Look);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Zoom, this, &ASPlayerPawn::Zoom);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Rotate, this, &ASPlayerPawn::Rotate);
 			EPlayerInputActions::BindInput_StartTriggerComplete(Input, PlayerActions->Select, this, &ASPlayerPawn::Select, &ASPlayerPawn::SelectHold, &ASPlayerPawn::SelectEnd);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->TestPlacement, this, &ASPlayerPawn::TestPlacement);
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->SelectDoubleTap, this, &ASPlayerPawn::SelectDoubleTap);
 			
-			/** Placement */
+			/** Placement **/
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->Place, this, &ASPlayerPawn::Place);
 			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->PlaceCancel, this, &ASPlayerPawn::PlaceCancel);
+			
+			/** Shift **/
+			EPlayerInputActions::BindInput_Simple(Input, PlayerActions->Shift, this, &ASPlayerPawn::Shift, &ASPlayerPawn::Shift);
+			EPlayerInputActions::BindInput_TriggerOnly(Input, PlayerActions->ShiftSelect, this, &ASPlayerPawn::ShiftSelect);
+
+			/** Alt **/
+			EPlayerInputActions::BindInput_Simple(Input, PlayerActions->Alt, this, &ASPlayerPawn::Alt, &ASPlayerPawn::Alt);
+			EPlayerInputActions::BindInput_StartTriggerComplete(Input, PlayerActions->AltSelect, this, &ASPlayerPawn::AltSelect, &ASPlayerPawn::SelectHold, &ASPlayerPawn::AltSelectEnd);
+
+			/** Ctrl **/
+			EPlayerInputActions::BindInput_Simple(Input, PlayerActions->Ctrl, this, &ASPlayerPawn::Ctrl, &ASPlayerPawn::Ctrl);
+			EPlayerInputActions::BindInput_StartTriggerComplete(Input, PlayerActions->CtrlSelect, this, &ASPlayerPawn::CtrlSelect, &ASPlayerPawn::SelectHold, &ASPlayerPawn::CtrlSelectEnd);
 		}
 	}
 }
@@ -334,6 +349,169 @@ void ASPlayerPawn::TestPlacement(const FInputActionValue& Value)
 	}
 
 	SPlayer->SetPlacementPreview();
+}
+
+void ASPlayerPawn::SelectDoubleTap(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// Get the selection under cursor
+	if (AActor* Selection = GetSelectedObject())
+	{
+		if (ARtsProjectCharacter* SelectedCharacter = Cast<ARtsProjectCharacter>(Selection))
+		{
+			SPlayer->Handle_DeSelection(Selection);
+			SelectedCharacter->Destroy();
+		}
+	}
+}
+
+void ASPlayerPawn::Shift(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("SHIFT : %s"), Value.Get<bool>() ? TEXT("ON") : TEXT("OFF"));
+	SPlayer->SetInputShift(Value.Get<bool>());
+}
+
+void ASPlayerPawn::Alt(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// youtube : Enhanced Input Episode 4 Input Modifiers in Unreal Engine 5.1 C++ -> 10:00 je pense le probleme
+	UE_LOG(LogTemp, Warning, TEXT("ALT : %s"), Value.Get<bool>() ? TEXT("ON") : TEXT("OFF"));
+	SPlayer->SetInputAlt(Value.Get<bool>());
+}
+
+void ASPlayerPawn::Ctrl(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("CTRL : %s"), Value.Get<bool>() ? TEXT("ON") : TEXT("OFF"));
+	SPlayer->SetInputCtrl(Value.Get<bool>());
+}
+
+void ASPlayerPawn::ShiftSelect(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+	
+	// Get the selection under cursor
+	if (AActor* Selection = GetSelectedObject())
+	{
+		// Get selectionclass
+		const TSubclassOf<AActor> SelectionClass = Selection->GetClass();
+
+		TArray<AActor*> Actors;
+		Actors.Add(Selection);
+
+		for (TActorIterator<AActor> ActorItr(GetWorld(), SelectionClass); ActorItr; ++ActorItr)
+		{
+			AActor* Actor = *ActorItr;
+			const float DistanceSquared = FVector::DistSquared(Actor->GetActorLocation(), SelectHitLocation);
+			if (DistanceSquared <= FMath::Square(1000.f))
+			{
+				Actors.AddUnique(Actor);
+			}
+		}
+
+		SPlayer->Handle_Selection(Actors);
+	}
+	else
+	{
+		SPlayer->Handle_Selection(nullptr);
+	}
+}
+
+void ASPlayerPawn::AltSelect(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// Reset box select
+	BoxSelect = false;
+
+	// Store the initial hit location
+	SelectHitLocation = SPlayer->GetMousePositionOnTerrain();
+}
+
+void ASPlayerPawn::AltSelectEnd(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// Check if there is an active box selection
+	if (BoxSelect && SelectionBox)
+	{
+		// Use box for selection
+		SelectionBox->End(false);
+
+		// Reset box selection
+		BoxSelect = false;
+	}
+	else
+	{
+		// if no box selection perform a single selection
+		SPlayer->Handle_DeSelection(GetSelectedObject());
+	}
+}
+
+void ASPlayerPawn::CtrlSelect(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// Reset box select
+	BoxSelect = false;
+
+	// Store the initial hit location
+	SelectHitLocation = SPlayer->GetMousePositionOnTerrain();
+}
+
+void ASPlayerPawn::CtrlSelectEnd(const FInputActionValue& Value)
+{
+	if (!SPlayer)
+	{
+		return;
+	}
+
+	// Check if there is an active box selection
+	if (BoxSelect && SelectionBox)
+	{
+		// Use box for selection
+		SelectionBox->End(true, true);
+
+		// Reset box selection
+		BoxSelect = false;
+	}
+	else
+	{
+		// if no box selection perform a single selection
+		if (AActor* Selection = GetSelectedObject())
+		{
+			SPlayer->Handle_Selection(Selection);
+		}
+	}
 }
 
 void ASPlayerPawn::Place(const FInputActionValue& Value)

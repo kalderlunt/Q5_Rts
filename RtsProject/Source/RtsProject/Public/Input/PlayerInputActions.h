@@ -43,6 +43,20 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Default")
 	UInputAction* TestPlacement;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Default")
+	UInputAction* SelectDoubleTap;
+
+	/** Modifier Keys **/
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Modifiers")
+	UInputAction* Shift;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Modifiers")
+	UInputAction* Alt;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Modifiers")
+	UInputAction* Ctrl;
+	
 
 	/** Placement Mapping Context **/
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
@@ -56,6 +70,39 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Placement")
 	UInputAction* PlaceCancel;
+
+	
+	/** Shift Mapping Context **/
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Shift")
+	UInputMappingContext* MappingContextShift;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Shift")
+	int32 MapPriorityShift;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Shift")
+	UInputAction* ShiftSelect;
+
+	
+	/** Alt Mapping Context **/
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Alt")
+	UInputMappingContext* MappingContextAlt;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Alt")
+	int32 MapPriorityAlt;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Alt")
+	UInputAction* AltSelect;
+	
+	
+	/** Ctrl Mapping Context **/
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Ctrl")
+	UInputMappingContext* MappingContextCtrl;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Ctrl")
+	int32 MapPriorityCtrl;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Ctrl")
+	UInputAction* CtrlSelect;
 };
 
 namespace EPlayerInputActions
@@ -80,6 +127,20 @@ namespace EPlayerInputActions
 		if (TriggerFunc != nullptr)
 		{
 			Input->BindAction(Action, ETriggerEvent::Triggered, Obj, TriggerFunc);
+		}
+		
+		if (CompleteFunc != nullptr)
+		{
+			Input->BindAction(Action, ETriggerEvent::Completed, Obj, CompleteFunc);
+		}
+	}
+
+	template<class T, class FuncType>
+	void BindInput_Simple(UEnhancedInputComponent* Input, const UInputAction* Action, T* Obj, FuncType TriggerFunc, FuncType CompleteFunc)
+	{
+		if (TriggerFunc != nullptr)
+		{
+			Input->BindAction(Action, ETriggerEvent::Started, Obj, TriggerFunc);
 		}
 		
 		if (CompleteFunc != nullptr)
